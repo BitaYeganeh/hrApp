@@ -1,0 +1,11 @@
+.footer {
+    background-color: antiquewhite;
+    color: blue;
+    padding:16px;
+    margin-top:25rem;
+}
+.footer p {
+  margin: 0;
+  color: blue;
+  font-size: 16px;
+}

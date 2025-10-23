@@ -1,0 +1,10 @@
+.header {
+    background-color: antiquewhite;
+    color: blue;
+    padding:20px;
+    text-align: left;
+    font-size: 1.2rem;
+}
+.h1{
+    margin-block-start: 0rem;
+}

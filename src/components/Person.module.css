@@ -1,0 +1,22 @@
+.person {
+    display: flex;
+    flex-direction: column;
+    min-height: 23rem;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    max-height:100%;
+    
+}
+.name{
+    color:blue;
+    font-size: 36px;
+}
+.title{
+    color: rgb(147, 86, 5);
+    margin-bottom: 20px;
+}
+.salary, .phone, .email{
+    margin-bottom: 15px;
+}
