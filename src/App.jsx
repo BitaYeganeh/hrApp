@@ -1,26 +1,33 @@
+import './App.css'
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Person from "./components/Person"
-
-import './App.css'
+import Person from "./components/Person";
 
 function App() {
   return (
-    <div>
-      <Header />
-       <main>
+    <>
+      <Header/>
+       <div className="container">
         <Person 
-          name="Bita Yeganeh"
+          name="Sarah Smith"
           title="Frontend Developer"
           salary="3800€/month"
           phone="+358-40 123 0 456"
-          email="s2500286@edu.bc.fi"
-          animal="Owl"
+          email="sarah.smith@gmail.com"
+          animal="Dog"
+        />
+         <Person 
+          name="Alex Blue"
+          title="Frontend Developer"
+          salary="3800€/month"
+          phone="+358-50 123 4 567"
+          email="alex.b@gmail.com"
+          animal="Cat"
         />
 
-      </main>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
 export default App;

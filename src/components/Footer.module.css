@@ -1,11 +1,9 @@
 .footer {
-    background-color: antiquewhite;
-    color: blue;
-    padding:16px;
-    margin-top:25rem;
-}
-.footer p {
-  margin: 0;
-  color: blue;
-  font-size: 16px;
+    background-color: rgb(178, 206, 206);
+    padding:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    
 }
