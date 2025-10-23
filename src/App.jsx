@@ -17,7 +17,7 @@ function App() {
           email="s2500286@edu.bc.fi"
           animal="Owl"
         />
-        
+
       </main>
       <Footer />
     </div>
