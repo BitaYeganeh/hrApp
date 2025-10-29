@@ -4,4 +4,7 @@
     padding:20px;
     text-align: center;
     font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgb(4, 92, 100);
+
 }
