@@ -1,29 +1,17 @@
 import './App.css'
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Person from "./components/Person";
+import PersonList from "./components/PersonList";
 
 function App() {
   return (
     <>
       <Header/>
+      <h1 className="siteTitle">Employee's Information</h1>
        <div className="container">
-        <Person 
-          name="Sarah Smith"
-          title="Frontend Developer"
-          salary="3800€/month"
-          phone="+358-40 123 0 456"
-          email="sarah.smith@gmail.com"
-          animal="Dog"
-        />
-         <Person 
-          name="Alex Blue"
-          title="Frontend Developer"
-          salary="3800€/month"
-          phone="+358-50 123 4 567"
-          email="alex.b@gmail.com"
-          animal="Cat"
-        />
+       
+        <PersonList />
+        
 
       </div>
       <Footer />
