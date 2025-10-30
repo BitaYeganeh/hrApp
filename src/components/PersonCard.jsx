@@ -1,5 +1,5 @@
 import styles from "./PersonCard.module.css";
-
+import {getAnimalEmoji} from "../utils/animalEmoji"
 const PersonCard = (
     {
         name,
@@ -42,7 +42,7 @@ const PersonCard = (
         <div className={styles.salary}>Salary: {salary}</div>
         <div className={styles.phone}>Phone :{phone}</div>
         <div className={styles.email}>Email: {email}</div>
-        <div className={styles.animal}>Favorite Animal: {animal}</div>
+        <div className={styles.animal}>Favorite Animal: {getAnimalEmoji(animal)}</div>
         <div className={styles.startDate}>Start Date: {startDate}</div>
         <div className={styles.location}>Location: {location}</div>
         <div className={styles.department}>Department: {department}</div>

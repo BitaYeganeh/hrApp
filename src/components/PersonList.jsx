@@ -1,6 +1,6 @@
 import PersonCard from "./PersonCard";
 import React from "react";
-import {employees} from "./employees";
+import {employees} from "../data/employees";
 import {calculateWorkExperience} from "../utils/calculateWorkExperience"
 
 const PersonList = () => {
