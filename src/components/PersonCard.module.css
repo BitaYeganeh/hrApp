@@ -1,8 +1,6 @@
 .person {
     display: flex;
     flex-direction: column;
-    min-height: 250px;
-    min-width: 250px;
     font-size: 20px;
     font-weight: bold;
     background-color: rgb(178, 206, 206);
@@ -10,20 +8,24 @@
     border-color: black;
     border-radius: 8px;
     box-shadow: 10px 10px 10px rgb(4, 92, 100);
-    margin-top: 20px;
-    
+    margin-top: 30px;
+   
 }
 
 .name{
     color:blue;
     font-size: 20px;
     padding-bottom: 10px;
+    padding-top: 20px;
 }
 .title{
     color: rgb(4, 52, 48);
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
-.salary, .phone, .email{
+.workExperience, .salary, .phone, .email, .animal, .startDate, .location, .department, .skills{
     margin-bottom: 15px;
+}
+.reminder{
+    color:rgb(204, 17, 221);
 }

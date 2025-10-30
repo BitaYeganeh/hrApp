@@ -5,16 +5,22 @@
 }
 
 #root {
-  height:100vh;
+  height:auto;
   width:100vw;
-  background-color: rgb(241, 232, 218);
+  background-color: rgb(236, 240, 240);
+}
+.siteTitle{
+  font-weight: bold;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .container{
     display:flex;
     justify-content: center;
     align-items: center;
-    padding:15rem;
-    gap:50px;
-    height:45vh;
+    padding:4rem;
+    height:auto;
+    
 }
