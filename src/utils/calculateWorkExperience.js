@@ -7,8 +7,8 @@ export function calculateWorkExperience(startDate) {
 
   // Fix negative months
   if (months < 0) {
-    years--;
-    months += 12;
+    years--; // go back 1 year
+    months += 12; //add 12 months to make months positive
   }
 
   return { years, months };
