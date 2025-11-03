@@ -27,14 +27,14 @@ const PersonCard = (
     {/* add message for 5.10.15 years */}
             {workExperience.years > 0 && workExperience.years % 5 === 0 && (
                 <div className={styles.reminder}>
-                 🎉 Schedule recognition meeting.
+                 🎉 Schedule recognition meeting 🎉
                 </div>
             )}
           
     {/* add msg for less than 6 months experience */}
             {workExperience.years === 0 && workExperience.months < 6 && (
                 <div className={styles.reminder}>
-                 🔔 Schedule probation review.
+                 🔔 Schedule probation review 🔔
                 </div>
             )}
         </div>
