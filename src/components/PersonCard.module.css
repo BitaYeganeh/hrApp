@@ -1,32 +1,101 @@
 .person {
     display: flex;
-    flex-direction: column;
-    font-size: 20px;
+    flex-direction:column;
+    font-size: 12px;
     font-weight: bold;
-    background-color: rgb(178, 206, 206);
-    text-align: center;
+    background-color: rgb(237, 244, 244);
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
     border-color: black;
     border-radius: 8px;
     box-shadow: 10px 10px 10px rgb(4, 92, 100);
-    margin-top: 30px;
+    margin-top: 5px;
+ 
    
 }
 
-.name{
-    color:blue;
+.animalIcon{
     font-size: 20px;
+}
+.name{
+    color:rgb(2, 36, 35);
+    font-size: 14px;
     padding-bottom: 10px;
-    padding-top: 20px;
+    padding-top: 10px;
+    text-align:center;
+}
+.headerRow {
+  display: flex;
+  justify-content: space-between; /* pushes left/right sides apart */
+  align-items: center;            /* vertically centers items */
+  border-bottom: 2px solid rgb(4, 92, 100); /* optional underline */
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.infoRow{
+     border-bottom: 2px solid rgb(4, 92, 100); /* optional underline */
+     padding-bottom: 12px;
+}
+.department,
+.salary,
+.phone,
+.location {
+  color: rgb(4, 52, 48);
+  font-size: 0.75rem;
+}
+.email{
+    color:blue
 }
 .title{
-    color: rgb(4, 52, 48);
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    color:rgb(2, 36, 35);
+    font-size: 14px;
+  
 }
-.workExperience, .salary, .phone, .email, .animal, .startDate, .location, .department, .skills{
-    margin-bottom: 15px;
+.salary{
+    text-align: right;
+    margin-top: 1px;
 }
+.location{
+    text-align: left;
+    margin-top: 1px;
+}
+
 .reminder{
     color:rgb(196, 65, 165);
-    padding-top: 8px;
+    padding-top: 6px;
+    align-content: right;
+    text-align: right;
+}
+.skillsSection {
+  margin-top: 12px;
+}
+
+.skillsLabel {
+  font-weight: 600;
+  color: rgb(4, 52, 48);
+  padding-bottom: 10px;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap; /* makes them wrap nicely on small screens */
+  gap: 4px;        /* space between boxes */
+}
+
+.skillBox {
+  background-color: rgb(222, 243, 243); /* light teal background */
+  color:blue;
+  border: 1px solid rgb(4, 92, 100);
+  border-radius: 5px;  /* rounded pill style */
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+
+/* optional hover effect */
+.skillBox:hover {
+  background-color: rgb(4, 92, 100);
+  color: white;
+  cursor: default;
 }
