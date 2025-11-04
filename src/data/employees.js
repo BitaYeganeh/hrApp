@@ -15,7 +15,7 @@ export const employees = [
 
    {
     id: 2,
-    name: "liina Koskinen",
+    name: "Liina Koskinen",
     title: "Backend Developer",
     salary: 3800,
     phone: "040-1234567",

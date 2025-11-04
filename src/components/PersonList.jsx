@@ -1,5 +1,5 @@
 import PersonCard from "./PersonCard";
-import React from "react";
+import styles from "./PersonList.module.css";
 import {employees} from "../data/employees";
 import {calculateWorkExperience} from "../utils/calculateWorkExperience"
 
@@ -7,7 +7,7 @@ const PersonList = () => {
 
 return (
     
-    <div>
+    <div className={styles.listContainer}>
     {employees.map((employee) => (
         <PersonCard
             key={employee.id}
