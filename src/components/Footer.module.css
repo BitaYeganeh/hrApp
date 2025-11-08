@@ -2,15 +2,15 @@
   background-color: rgb(178, 206, 206);
   padding: 30px;
   box-shadow: 0 -4px 8px rgba(4, 92, 100);
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: center;
   padding: 1rem;
 }
 .footer a {
-  color: red;
+  color: blue;
 }
 
 .footer a:hover {
-  color: blue;
+  color: red;
   text-decoration: underline;
 }
