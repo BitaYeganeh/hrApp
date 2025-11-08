@@ -2,7 +2,8 @@
   max-width: 900px;
   margin: 3rem auto;
   padding: 2rem 3rem;
-  background-color: rgb(178, 206, 206);
+  background-color: rgb(237, 244, 244);
+  text-align: left;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   line-height: 1.7;
