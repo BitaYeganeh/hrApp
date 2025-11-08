@@ -1,10 +1,16 @@
 .footer {
   background-color: rgb(178, 206, 206);
   padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
   box-shadow: 0 -4px 8px rgba(4, 92, 100);
-  padding-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+.footer a {
+  color: blue;
+}
+
+.footer a:hover {
+  color: red;
+  text-decoration: underline;
 }

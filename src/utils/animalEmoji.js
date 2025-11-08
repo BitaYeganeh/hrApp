@@ -16,5 +16,5 @@ crab:"🦀"
 export function getAnimalEmoji(animal) {
   if (!animal) return "❓"; // if there's no animal name
   const key = animal.trim().toLowerCase(); // normalize text
-  return Emojis[key] || "✨"; // return emoji or default if not found
+  return Emojis[key] || "🔑"; // return emoji or default if not found
 }

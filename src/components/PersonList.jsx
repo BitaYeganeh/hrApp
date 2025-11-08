@@ -1,27 +1,29 @@
 import PersonCard from "./PersonCard";
-import React from "react";
-import {employees} from "../data/employees";
+import styles from "./PersonList.module.css";
 import {calculateWorkExperience} from "../utils/calculateWorkExperience"
 
-const PersonList = () => {
+
+
+const PersonList = ({employees}) => {
 
 return (
     
-    <div>
+    <div className={styles.listContainer}>
     {employees.map((employee) => (
         <PersonCard
             key={employee.id}
-            name={employee.name}
-            title={employee.title}
+            {...employee}
+            //name={employee.name}
+            //title={employee.title}
             workExperience={calculateWorkExperience(employee.startDate)}
-            salary={employee.salary}
-            phone={employee.phone}
-            email={employee.email}
-            animal={employee.animal}
-            startDate={employee.startDate}
-            location={employee.location}
-            department={employee.department}
-            skills={employee.skills}
+            //salary={employee.salary}
+            //phone={employee.phone}
+            //email={employee.email}
+            //animal={employee.animal}
+            //startDate={employee.startDate}
+            //location={employee.location}
+            //department={employee.department}
+            //skills={employee.skills}
         />
     ))}
     </div>
