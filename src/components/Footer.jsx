@@ -6,7 +6,7 @@ const Footer = () => {
         <div>
         <footer className={styles.footer}>
         <p>
-        © 2024 WP25K. All rights reserved. <a href="#privacy">Privacy Policy</a>
+        © 2025 WP25K. All rights reserved. <a href="#privacy">Privacy Policy</a>
         </p>
         </footer>
         </div>
