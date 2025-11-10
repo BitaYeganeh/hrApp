@@ -31,6 +31,7 @@ function App() {
       ...employees,
       {
         id: Date.now(),
+        ...formData, //COPIES ALL KEY-VALUE PAIRS FROM THE FORMDATA
         name: formData.name,
         title: formData.title,
         salary: formData.salary,
