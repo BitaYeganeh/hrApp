@@ -1,0 +1,157 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Aino Virtanen",
+      "title": "HR Manager",
+      "salary": 4200,
+      "phone": "040-1234567",
+      "email": "aino.virtanen@example.com",
+      "animal": "Owl",
+      "startDate": "2015-09-29",
+      "location": "Helsinki",
+      "department": "Human Resources",
+      "skills": [
+        "Recruiting",
+        "Communication",
+        "Employee Relations"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Liina Koskinen",
+      "title": "Backend Developer",
+      "salary": 3800,
+      "phone": "040-1234567",
+      "email": "liina.koskinen@gmail.com",
+      "animal": "Snake",
+      "startDate": "2025-06-01",
+      "location": "Helsinki",
+      "department": "IT",
+      "skills": [
+        "React",
+        "Wordpress",
+        "PHP"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Juha Mäkelä",
+      "title": "Operations Lead",
+      "salary": 5500,
+      "phone": "040-8901234",
+      "email": "juha.makela@example.com",
+      "animal": "Eagle",
+      "startDate": "2014-09-01",
+      "location": "Helsinki",
+      "department": "Operations",
+      "skills": [
+        "Planning",
+        "Management",
+        "Optimization"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Emma Koskinen",
+      "title": "Customer Success Manager",
+      "salary": 4300,
+      "phone": "040-9012345",
+      "email": "emma.koskinen@example.com",
+      "animal": "Swan",
+      "startDate": "2022-01-05",
+      "location": "Oulu",
+      "department": "Customer Relations",
+      "skills": [
+        "Communication",
+        "CRM",
+        "Empathy"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Ville Lehtonen",
+      "title": "Data Analyst",
+      "salary": 4700,
+      "phone": "040-0123456",
+      "email": "ville.lehtonen@example.com",
+      "animal": "Wolf",
+      "startDate": "2025-05-22",
+      "location": "Helsinki",
+      "department": "Data",
+      "skills": [
+        "SQL",
+        "Python",
+        "Data Visualization"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Maria Rantanen",
+      "title": "QA Engineer",
+      "salary": 4100,
+      "phone": "040-7890123",
+      "email": "maria.rantanen@example.com",
+      "animal": "Dolphin",
+      "startDate": "2021-06-18",
+      "location": "Espoo",
+      "department": "IT",
+      "skills": [
+        "Testing",
+        "Cypress",
+        "Automation"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Laura Jarvinen",
+      "title": "Project Manager",
+      "salary": 6200,
+      "phone": "040-1234567",
+      "email": "laura.jarvinen@example.com",
+      "animal": "crab",
+      "startDate": "2018-04-01",
+      "location": "Helsinki",
+      "department": "Managment",
+      "skills": [
+        "Communication",
+        "Employee Relations",
+        "Recruiting"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Oskari Vakka",
+      "title": "Marketing lead",
+      "salary": 5200,
+      "phone": "040-1234567",
+      "email": "oskari.vakka@example.com",
+      "animal": "Horse",
+      "startDate": "2025-08-01",
+      "location": "Helsinki",
+      "department": "Marketing",
+      "skills": [
+        "Recruiting",
+        "Communication",
+        "Employee Relations"
+      ]
+    },
+    {
+      "id": 1763108914758,
+      "name": "Bita Yeganeh",
+      "title": "Full Stack Developer",
+      "salary": "4500",
+      "phone": "0402550957",
+      "email": "b.yeganeh85@gmail.com",
+      "animal": "Owl",
+      "startDate": "1.5.2026",
+      "location": "Espoo",
+      "department": "IT",
+      "skills": [
+        "React",
+        "UI/UX Design"
+      ]
+    }
+ 
+  ]
+}

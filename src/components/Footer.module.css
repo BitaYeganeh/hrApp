@@ -1,13 +1,16 @@
 .footer {
   background-color: rgb(178, 206, 206);
-  padding: 30px;
+  padding: 40px;
   box-shadow: 0 -4px 8px rgba(4, 92, 100);
   font-size: 1rem;
   text-align: center;
-  padding: 1rem;
 }
 .footer a {
   color: blue;
+}
+.footer p {
+  text-align: center;
+  padding-top: 1rem;
 }
 
 .footer a:hover {
