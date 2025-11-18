@@ -8,7 +8,7 @@ const Layout = () => {
     return (
         <div>
             <Header />
-            <div style={{width:"100%", height: "85vh"}}>
+            <div style={{width:"100%", height: "95vh"}}>
                 <Outlet />{/* This is where page content will appear */}
             </div>
             <Footer />
