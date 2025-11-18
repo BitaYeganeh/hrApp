@@ -56,6 +56,10 @@
     text-align: right;
     margin-top: 1px;
 }
+.startDate{
+    text-align: left;
+    margin-top: 5px;
+}
 .location{
     text-align: left;
     margin-top: 1px;

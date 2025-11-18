@@ -1,7 +1,11 @@
 import styles from "./PersonCard.module.css";
 import {getAnimalEmoji} from "../utils/animalEmoji"
-const PersonCard = (
-    {
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+
+const PersonCard = ({
+        id,
         name,
         title,
         workExperience,
@@ -13,9 +17,97 @@ const PersonCard = (
         location,
         department,
         skills
-    }
-) => {
+    }) => {
 
+//EDITING STATE:
+
+const [isEditing, setIsEditing] = useState(false);
+
+const [formData, setFormData] = useState({
+    salary: salary || "",
+    location: location || "",
+    department: department || "",
+    skills: skills ? skills.join(", ") : "",
+});
+
+//add handleChange function
+const handleChange = (e) => {
+    setFormData((prevState) => {
+        return { ...prevState, [e.target.name]: e.target.value };
+    });
+};
+//add toggleEdit function
+const toggleEdit = () => {
+    setIsEditing(!isEditing);
+};
+
+//add handleSave function
+const handleSave = () => {
+    axios
+    .put(`http://localhost:3001/employees/${id}`, {
+        salary: formData.salary,
+        location: formData.location,
+        department: formData.department,
+        skills: formData.skills.split(",").map((skill) => skill.trim()),
+    })
+    .then(() => {
+        setIsEditing(false);
+    })
+    .catch((error) => {
+        console.error("Error: ", error.message);
+
+    });
+};
+useEffect(() => {
+    setFormData({
+        salary: salary || "",
+        location: location || "",
+        department: department || "",
+        skills: skills ? skills.join(", ") : "",
+    });
+}, [salary, location, department, skills]);
+
+//EDIT MODE VIEW:
+if (isEditing) {
+        return (
+            <div className={styles.person}>
+                <label>Salary:</label>
+                <input
+                    type="number"
+                    name="salary"
+                    value={formData.salary}
+                    onChange={handleChange}
+                />
+
+                <label>Location:</label>
+                <input
+                    type="text"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
+                />
+
+                <label>Department:</label>
+                <input
+                    type="text"
+                    name="department"
+                    value={formData.department}
+                    onChange={handleChange}
+                />
+
+                <label>Skills (comma separated):</label>
+                <input
+                    type="text"
+                    name="skills"
+                    value={formData.skills}
+                    onChange={handleChange}
+                />
+
+                <button onClick={toggleEdit}>Cancel</button>
+                <button onClick={handleSave}>Save</button>
+            </div>
+        );
+    }
     return (
         
         <div className={styles.person}>
@@ -63,6 +155,8 @@ const PersonCard = (
     ))}
   </div>
 </div>
+
+<button onClick={toggleEdit} className={styles.editButton}>Edit</button>
         </div>
     );
 };
