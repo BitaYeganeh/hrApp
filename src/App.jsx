@@ -14,6 +14,16 @@ import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const [employees, setEmployees] = useState([]);
+//update one employee in the list
+const updateEmployee = (updatedEmployee) => {
+  setEmployees((prevEmployees) =>
+    prevEmployees.map((employee) =>
+      employee.id === updatedEmployee.id ? updatedEmployee : employee
+    )
+  );
+};
+
+
   const [formData, setFormData] = useState({
     name:"",
     title:"",
@@ -109,7 +119,7 @@ useEffect(() => {
           {/* Home page */} 
           <Route
             index
-            element={<PersonList employees={employees} />}
+            element={<PersonList employees={employees} updateEmployee={updateEmployee} />}
             />
 
           {/* About page */}

@@ -18,15 +18,25 @@
       ]
     },
     {
-      "salary": "4500",
+      "id": "2",
+      "name": "Liina Koskinen",
+      "title": "Backend Developer",
+      "workExperience": {
+        "years": 0,
+        "months": 5
+      },
+      "phone": "040-1234567",
+      "email": "liina.koskinen@gmail.com",
+      "animal": "Snake",
+      "startDate": "2025-06-01",
+      "salary": "4800",
       "location": "Helsinki",
       "department": "IT",
       "skills": [
         "React",
         "Wordpress",
         "PHP"
-      ],
-      "id": "2"
+      ]
     },
     {
       "id": "5",
@@ -115,19 +125,17 @@
     },
     {
       "id": "10",
-      "name": "Oskari Vakka",
-      "title": "Marketing lead",
-      "salary": 5200,
-      "phone": "040-1234567",
-      "email": "oskari.vakka@example.com",
-      "animal": "Horse",
-      "startDate": "2025-08-01",
-      "location": "Helsinki",
-      "department": "Marketing",
+      "name": "Petra ",
+      "title": "Keskinen",
+      "workExperience": {
+        "years": null,
+        "months": null
+      },
+      "salary": "3800",
+      "location": "JP",
+      "department": "CONTENT",
       "skills": [
-        "Recruiting",
-        "Communication",
-        "Employee Relations"
+        "HTML3"
       ]
     },
     {
@@ -145,13 +153,6 @@
         "React",
         "UI/UX Design"
       ]
-    },
-    {
-      "id": "10",
-      "name": "Petra ",
-      "title": "Keskinen",
-      "age": "21",
-      "isFavourite": false
     }
   ]
 }

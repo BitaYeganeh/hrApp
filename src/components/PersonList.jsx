@@ -4,7 +4,7 @@ import {calculateWorkExperience} from "../utils/calculateWorkExperience"
 
 
 
-const PersonList = ({employees}) => {
+const PersonList = ({employees, updateEmployee}) => {
 
 return (
     
@@ -24,6 +24,7 @@ return (
             //location={employee.location}
             //department={employee.department}
             //skills={employee.skills}
+            updateEmployee={updateEmployee}
         />
     ))}
     </div>
