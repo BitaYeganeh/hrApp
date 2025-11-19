@@ -16,13 +16,15 @@ const PersonCard = ({
         startDate,
         location,
         department,
-        skills
+        skills,
+        updateEmployee
     }) => {
 
-//EDITING STATE:
 
+ // EDIT MODE STATE
 const [isEditing, setIsEditing] = useState(false);
 
+//FORM DATA STATE
 const [formData, setFormData] = useState({
     salary: salary || "",
     location: location || "",
@@ -30,12 +32,16 @@ const [formData, setFormData] = useState({
     skills: skills ? skills.join(", ") : "",
 });
 
-//add handleChange function
-const handleChange = (e) => {
+const [savedMessage, setSavedMessage] = useState("");
+
+
+  // Handle input changes
+  const handleChange = (e) => {
     setFormData((prevState) => {
         return { ...prevState, [e.target.name]: e.target.value };
     });
 };
+
 //add toggleEdit function
 const toggleEdit = () => {
     setIsEditing(!isEditing);
@@ -43,21 +49,40 @@ const toggleEdit = () => {
 
 //add handleSave function
 const handleSave = () => {
-    axios
-    .put(`http://localhost:3001/employees/${id}`, {
+    const updatedEmployee = {
+        id,
+        name,
+        title,
+        workExperience,
+        phone,
+        email,
+        animal,
+        startDate,
         salary: formData.salary,
         location: formData.location,
         department: formData.department,
         skills: formData.skills.split(",").map((skill) => skill.trim()),
-    })
-    .then(() => {
+    
+    };
+
+    axios
+    .put(`http://localhost:3001/employees/${id}`, updatedEmployee)
+    .then((response) => {
+        updateEmployee(response.data);
         setIsEditing(false);
-    })
+        setSavedMessage("Changes saved!");
+
+        // Clear the saved message after 2 seconds
+          setTimeout(() => setSavedMessage(""), 2000);
+    })   
+
     .catch((error) => {
         console.error("Error: ", error.message);
 
     });
 };
+
+// Sync formData with props when they change
 useEffect(() => {
     setFormData({
         salary: salary || "",
@@ -67,7 +92,10 @@ useEffect(() => {
     });
 }, [salary, location, department, skills]);
 
+
+
 //EDIT MODE VIEW:
+
 if (isEditing) {
         return (
             <div className={styles.person}>
@@ -108,9 +136,15 @@ if (isEditing) {
             </div>
         );
     }
-    return (
+
+    // DISPLAY NORMAL MODE VIEW:
+       return (
         
         <div className={styles.person}>
+
+
+            {savedMessage && <div className={styles.savedMessage}>{savedMessage}</div>} 
+            
             {/* add message for 5.10.15 years */}
             {workExperience.years > 0 && workExperience.years % 5 === 0 && (
                 <div className={styles.reminder}>

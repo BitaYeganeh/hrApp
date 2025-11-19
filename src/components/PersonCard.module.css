@@ -10,8 +10,6 @@
     border-color: black;
     border-radius: 8px;
     box-shadow: 10px 10px 10px rgb(4, 92, 100);
-    margin-top: 5px;
- 
    
 }
 
@@ -73,6 +71,7 @@
 }
 .skillsSection {
   margin-top: 12px;
+  margin-bottom: 10px;
 }
 
 .skillsLabel {
@@ -103,3 +102,24 @@
   color: white;
   cursor: default;
 }
+.editButton {
+    display: block;           /* make button block-level */
+    margin: 10px auto;        /* top-bottom 10px, left-right auto */
+    padding: 5px 9px;
+    background-color: rgb(4, 92, 100);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 3rem;
+    border: none;
+}
+.savedMessage {
+  background: #e60fc2;
+  color: #c6ddc7;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  width: fit-content;
+  animation: fadeOut 10s forwards;
+} 
