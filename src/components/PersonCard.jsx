@@ -103,7 +103,7 @@ const handleSave = () => {
 
 if (isEditing) {
     return (
-        <div className={styles.person}>
+        <div className={styles.personEditForm}>
             <label>Salary:</label>
             <input
                 type="number"
@@ -136,9 +136,11 @@ if (isEditing) {
                 onChange={handleChange}
             />
 
-            <button onClick={toggleEdit}>Cancel</button>
-            <button onClick={handleSave}>Save</button>
-        </div>
+                <div className={styles.editButtons} >
+                    <button onClick={toggleEdit}>Cancel</button>
+                    <button onClick={handleSave}>Save</button>
+                </div>
+            </div>
         );
     }
 

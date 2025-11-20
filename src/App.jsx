@@ -51,7 +51,7 @@ useEffect(() => {
 const onAddEmployee = () => {
 
   axios.post("http://localhost:3001/employees", {
-    id: Date.now(), 
+    id: (employees.length + 1).toString(),
     name: formData.name,
     title: formData.title,
     salary: formData.salary,
@@ -82,11 +82,9 @@ const onAddEmployee = () => {
       skills: ""
     });
     alert("Employee added successfully!");
-    //RETURN THE NEW EMPLOYEE
-    return response.data;
   })
   .catch((error) => {
-    console.error("Error adding employee:", error);
+    console.error("Error adding employee:", error.response.data || error.message);
   });
 };
  

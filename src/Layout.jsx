@@ -6,11 +6,11 @@ import Footer from "./components/Footer";
 
 const Layout = () => {
     return (
-        <div>
+        <div className="layout">
             <Header />
-            <div style={{width:"100%", height: "95vh"}}>
+            <main className="main-content">
                 <Outlet />{/* This is where page content will appear */}
-            </div>
+            </main>
             <Footer />
         </div>
     );
