@@ -125,23 +125,23 @@
     },
     {
       "id": "10",
-      "name": "Petra ",
-      "title": "Keskinen",
-      "workExperience": {
-        "years": null,
-        "months": null
-      },
-      "salary": "3800",
-      "location": "JP",
-      "department": "CONTENT",
+      "name": "Petra Keskinen",
+      "title": "Team Lead",
+      "phone": "040-7654321",
+      "email": "petra.keskinen@example.com",
+      "animal": "Fox",
+      "startDate": "2019-11-15",
+      "salary": "3900",
+      "location": "Helsinki",
+      "department": "Marketing",
       "skills": [
-        "HTML3"
+        "SQL"
       ]
     },
     {
-      "id": "1763108914758",
+      "id": 1763638019541,
       "name": "Bita Yeganeh",
-      "title": "Full Stack Developer",
+      "title": "Developer",
       "salary": "4500",
       "phone": "0402550957",
       "email": "b.yeganeh85@gmail.com",
@@ -151,7 +151,8 @@
       "department": "IT",
       "skills": [
         "React",
-        "UI/UX Design"
+        "Wordpress",
+        "PHP"
       ]
     }
   ]
