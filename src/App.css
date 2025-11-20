@@ -1,12 +1,18 @@
 *{
   margin:0;
   padding:0;
-
+  box-sizing: border-box;
 }
 
-#root {
-  height:auto;
-  width:100vw;
+#root, .layout{ 
+  height: 100vh; /* full viewport */
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1; /* take all space between header & footer */
+  overflow-y: auto; /* scroll if content is taller than viewport */
+  padding: 2rem;
 }
 .siteTitle{
   font-weight: bold;
@@ -15,16 +21,12 @@
   margin-bottom: 5px;
 }
 
-.container{
-    display:flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    
-    gap: 1rem; /* Aligns cards to top */
-    padding:4rem;
-    height:auto;
-    
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 

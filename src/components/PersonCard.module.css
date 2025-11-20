@@ -123,3 +123,53 @@
   width: fit-content;
   animation: fadeOut 10s forwards;
 } 
+.personEditForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: rgb(237, 244, 244);
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+.personEditForm label {
+    font-weight: 600;
+    color: rgb(4, 52, 48);
+    margin-bottom: 4px;
+}
+.editButtons {
+  display: flex;
+  justify-content: center;  
+  gap:10px;    /* space between buttons */
+  margin-top: 10px; /* optional spacing from inputs */
+}
+
+/* Cancel button (first button) */
+.editButtons button:first-child {
+  background-color: #ff4d4f;  /* red */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.editButtons button:first-child:hover {
+  opacity: 0.8;
+}
+
+/* Save button (second button) */
+.editButtons button:last-child {
+  background-color: #52c41a; /* green */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.editButtons button:last-child:hover {
+  opacity: 0.8;
+}
