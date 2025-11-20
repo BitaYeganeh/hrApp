@@ -11,16 +11,19 @@ setFormData((prevState) => {
    
 };
 const handleSubmit = (e) => {
-e.preventDefault();
+    e.preventDefault();
+
+    
 
 //BUILD NEW EMPLOYEE OBJECT:
-const newEmployee = {
-    id: Date.now(), // CREATE A UNIQUE ID
-    ...formData,
-    skills:formData.skills.split(",").map(skill => skill.trim())
-};
+// const newEmployee = {
+//     id: Date.now(), // CREATE A UNIQUE ID
+//     ...formData,
+//     skills:formData.skills.split(",").map(skill => skill.trim())
+// };
 
-onAddEmployee(newEmployee); //PASS THE NEW EMPLOYEE TO THE PARENT
+//onAddEmployee(newEmployee); //PASS THE NEW EMPLOYEE TO THE PARENT
+onAddEmployee(); //CALL THE FUNCTION DIRECTLY FROM APP.JSX
 
 //RESET FORM
 setFormData({
@@ -36,9 +39,8 @@ setFormData({
     skills:"",
 
 });
-
-alert("Employee added successfully!");
-navigate("/"); //REDIRECT TO THE MAIN PAGE (HOME) AFTER ADDING A NEW EMPLOYEE
+//NAVIGATE HOME
+navigate("/"); 
 };
 
 
