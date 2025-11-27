@@ -8,7 +8,6 @@ import About from './pages/About';
 import AddEmployee from './pages/AddEmployee';
 import ErrorPage from './pages/ErrorPage';
 import useAxios from './hooks/useAxios';
-
 function App() {
   // ----------------------------
   // State
@@ -55,9 +54,9 @@ function App() {
 
   const { get, post } = useAxios();
 
-  // Use useEffect and axios.get() to fetch employees from http://localhost:3001/employees.
+  // Use useEffect and axios.get() to fetch employees from https://hrapp-bec7.onrender.com/employees.
   useEffect(() => {
-    get('http://localhost:3001/employees').then((response) => {
+    get('https://hrapp-bec7.onrender.com/employees').then((response) => {
       setEmployees(response.data);
     });
   }, []);
@@ -67,7 +66,7 @@ function App() {
   // ----------------------------
   // Add new employee
   const onAddEmployee = () => {
-    post('http://localhost:3001/employees', {
+    post('https://hrapp-bec7.onrender.com/employees', {
       id: (employees.length + 1).toString(),
       ...formData,
       skills: formData.skills.split(',').map((skill) => skill.trim()),
