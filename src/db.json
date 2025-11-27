@@ -195,7 +195,23 @@
       "location": "JP",
       "department": "CONTENT",
       "skills": [
-        "React"
+        "React",
+        "sql"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Bita Yeganeh",
+      "title": "CEO",
+      "phone": "0402550957",
+      "email": "b.yeganeh85@gmail.com",
+      "animal": "Duck",
+      "startDate": "1.5.2026",
+      "salary": "7000",
+      "location": "Helsinki",
+      "department": "Managment",
+      "skills": [
+        "d"
       ]
     }
   ]
