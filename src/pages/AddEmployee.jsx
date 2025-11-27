@@ -42,7 +42,7 @@ const AddEmployee = ({ formData, setFormData }) => {
       skills: formData.skills.split(',').map((s) => s.trim()),
     };
 
-    post('http://localhost:3001/employees', newEmployee)
+    post('https://hrapp-bec7.onrender.com/employees', newEmployee)
       .then(() => {
         // Reset form
         setFormData(Object.fromEntries(fields.map((f) => [f, ''])));

@@ -73,7 +73,7 @@ const PersonCard = ({
       skills: formData.skills.split(',').map((skill) => skill.trim()),
     };
 
-    put(`http://localhost:3001/employees/${id}`, updatedEmployee)
+    put(`https://hrapp-bec7.onrender.com/employees/${id}`, updatedEmployee)
       .then((res) => {
         updateEmployee(res.data);
         setIsEditing(false);
