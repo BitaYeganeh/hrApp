@@ -18,11 +18,12 @@ const PersonCard = ({
   department,
   skills,
   updateEmployee,
+  deleteEmployee,
 }) => {
   // ----------------------------
   // Custom Hook
   // ----------------------------
-  const { put } = useAxios(); // ALWAYS at the top
+  const { put, del } = useAxios(); // ALWAYS at the top
 
   // ----------------------------
   // Helper: get initial form data
@@ -83,6 +84,17 @@ const PersonCard = ({
       })
       .catch((err) => console.error('Error updating employee:', err.message));
   };
+  // Delete employee handler
+  const handleDelete = () => {
+    if (!window.confirm('Are you sure you want to delete this employee?')) {
+      return;
+    }
+    del(`https://hrapp-bec7.onrender.com/employees/${id}`)
+      .then(() => {
+        deleteEmployee(id);
+      })
+      .catch((err) => console.error('Error deleting employee:', err.message));
+  };
 
   // ----------------------------
   // Render helpers
@@ -134,6 +146,12 @@ const PersonCard = ({
         <div className={styles.name}>
           <span className={styles.animalIcon}>{getAnimalEmoji(animal)}</span>{' '}
           {name} <span className={styles.title}>({title})</span>
+          <button
+            onClick={handleDelete}
+            className={styles.deleteButtonUnderName}
+          >
+            Remove
+          </button>
         </div>
       </div>
 
@@ -166,7 +184,6 @@ const PersonCard = ({
           ))}
         </div>
       </div>
-
       <button onClick={toggleEdit} className={styles.editButton}>
         Edit
       </button>
