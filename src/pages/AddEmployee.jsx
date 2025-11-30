@@ -1,8 +1,6 @@
 import styles from './AddEmployee.module.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAxios from '../hooks/useAxios';
-
 // LIST ALL FORM FIELDS HERE
 const fields = [
   'name',
@@ -20,9 +18,8 @@ const fields = [
 //capitalize function for labels
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-const AddEmployee = ({ formData, setFormData }) => {
+const AddEmployee = ({ formData, setFormData, onAddEmployee }) => {
   const navigate = useNavigate();
-  const { post } = useAxios();
 
   // ----------------------------
   // Handlers
@@ -37,20 +34,10 @@ const AddEmployee = ({ formData, setFormData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newEmployee = {
-      ...formData,
-      skills: formData.skills.split(',').map((s) => s.trim()),
-    };
-
-    post('https://hrapp-bec7.onrender.com/employees', newEmployee)
-      .then(() => {
-        // Reset form
-        setFormData(Object.fromEntries(fields.map((f) => [f, ''])));
-        navigate('/');
-      })
-      .catch((error) => {
-        console.error('Error adding employee:', error);
-      });
+    onAddEmployee();
+    // Reset form
+    setFormData(Object.fromEntries(fields.map((f) => [f, ''])));
+    navigate('/');
   };
 
   // ----------------------------

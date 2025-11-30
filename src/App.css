@@ -1,20 +1,20 @@
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-#root, .layout{ 
-  height: 100vh; /* full viewport */
+#root,
+.layout {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 .main-content {
   flex: 1; /* take all space between header & footer */
-  overflow-y: auto; /* scroll if content is taller than viewport */
   padding: 2rem;
 }
-.siteTitle{
+.siteTitle {
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
@@ -28,5 +28,3 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
-
-
