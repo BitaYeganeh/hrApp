@@ -3,6 +3,7 @@ import { getAnimalEmoji } from '../utils/animalEmoji';
 import { useState, useEffect } from 'react';
 import { calculateWorkExperience } from '../utils/calculateWorkExperience';
 import useAxios from '../hooks/useAxios';
+import React from 'react';
 
 const PersonCard = ({
   id,

@@ -1,6 +1,7 @@
-import PersonCard from "./PersonCard";
-import styles from "./PersonList.module.css";
-import { calculateWorkExperience } from "../utils/calculateWorkExperience";
+import PersonCard from './PersonCard';
+import styles from './PersonList.module.css';
+import { calculateWorkExperience } from '../utils/calculateWorkExperience';
+import React from 'react';
 
 const PersonList = ({ employees, updateEmployee }) => {
   return (
