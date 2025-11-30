@@ -21,11 +21,15 @@
       "id": "2",
       "name": "Liina Koskinen",
       "title": "Backend Developer",
-      "salary": 3800,
+      "workExperience": {
+        "years": 0,
+        "months": 5
+      },
       "phone": "040-1234567",
       "email": "liina.koskinen@gmail.com",
       "animal": "Snake",
       "startDate": "2025-06-01",
+      "salary": "4800",
       "location": "Helsinki",
       "department": "IT",
       "skills": [
@@ -35,7 +39,7 @@
       ]
     },
     {
-      "id": "5",
+      "id": "3",
       "name": "Juha Mäkelä",
       "title": "Operations Lead",
       "salary": 5500,
@@ -52,7 +56,7 @@
       ]
     },
     {
-      "id": "6",
+      "id": "4",
       "name": "Emma Koskinen",
       "title": "Customer Success Manager",
       "salary": 4300,
@@ -69,7 +73,7 @@
       ]
     },
     {
-      "id": "7",
+      "id": "5",
       "name": "Ville Lehtonen",
       "title": "Data Analyst",
       "salary": 4700,
@@ -86,7 +90,7 @@
       ]
     },
     {
-      "id": "8",
+      "id": "6",
       "name": "Maria Rantanen",
       "title": "QA Engineer",
       "salary": 4100,
@@ -103,7 +107,7 @@
       ]
     },
     {
-      "id": "9",
+      "id": "7",
       "name": "Laura Jarvinen",
       "title": "Project Manager",
       "salary": 6200,
@@ -120,38 +124,110 @@
       ]
     },
     {
-      "id": "10",
-      "name": "Oskari Vakka",
-      "title": "Marketing lead",
-      "salary": 5200,
-      "phone": "040-1234567",
-      "email": "oskari.vakka@example.com",
-      "animal": "Horse",
-      "startDate": "2025-08-01",
+      "id": "8",
+      "name": "Petra Keskinen",
+      "title": "Team Lead",
+      "phone": "040-7654321",
+      "email": "petra.keskinen@example.com",
+      "animal": "Fox",
+      "startDate": "2019-11-15",
+      "salary": "3500",
       "location": "Helsinki",
       "department": "Marketing",
       "skills": [
-        "Recruiting",
-        "Communication",
-        "Employee Relations"
+        "SQL."
       ]
     },
     {
-      "id": 1763108914758,
-      "name": "Bita Yeganeh",
-      "title": "Full Stack Developer",
+      "id": "9",
+      "name": "Sara Lahtinen",
+      "title": "Developer",
       "salary": "4500",
+      "phone": "0401234567",
+      "email": "sara.lahtinen@example.com",
+      "animal": "Owl",
+      "startDate": "1.5.2026",
+      "location": "Helsinki",
+      "department": "IT",
+      "skills": [
+        "HTML"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Mikko Salminen",
+      "title": "Intern",
+      "phone": "0407654321",
+      "email": "mikko.salmimen@example.com",
+      "animal": "Hedgehog",
+      "startDate": "15.3.2026",
+      "salary": "2500",
+      "location": "Espoo",
+      "department": "Human Resources",
+      "skills": [
+        "CSS111"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Bita Yeganeh",
+      "title": "it",
       "phone": "0402550957",
       "email": "b.yeganeh85@gmail.com",
       "animal": "Owl",
       "startDate": "1.5.2026",
-      "location": "Espoo",
+      "salary": "4500",
+      "location": "Helsinki",
       "department": "IT",
       "skills": [
+        "HTML"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Bita Yeganeh",
+      "title": "fgh",
+      "phone": "0402550957",
+      "email": "b.yeganeh85@gmail.com",
+      "animal": "bvn",
+      "startDate": "1.5.2026",
+      "salary": "87654",
+      "location": "JP",
+      "department": "CONTENT",
+      "skills": [
         "React",
-        "UI/UX Design"
+        "sql"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Bita Yeganeh",
+      "title": "CEO",
+      "phone": "0402550957",
+      "email": "b.yeganeh85@gmail.com",
+      "animal": "Duck",
+      "startDate": "1.5.2026",
+      "salary": "7000",
+      "location": "Helsinki",
+      "department": "Managment",
+      "skills": [
+        "d"
+      ]
+    },
+    {
+      "id": 1764420389798,
+      "name": "hhh",
+      "title": "",
+      "salary": "",
+      "phone": "",
+      "email": "",
+      "animal": "",
+      "startDate": "",
+      "location": "",
+      "department": "",
+      "skills": [
+        ""
       ]
     }
- 
   ]
 }

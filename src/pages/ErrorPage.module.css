@@ -1,0 +1,20 @@
+.container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  text-align: center;
+  padding: 20px;
+  color: red;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}

@@ -1,17 +1,17 @@
-
-import styles from "./Footer.module.css";
+import styles from './Footer.module.css';
+import React from 'react';
 
 const Footer = () => {
-    return (
-        <div>
-        <footer className={styles.footer}>
+  return (
+    <div>
+      <footer className={styles.footer}>
         <p>
-        © 2025 WP25K. All rights reserved. <a href="#privacy">Privacy Policy</a>
+          © 2025 WP25K. All rights reserved.{' '}
+          <a href="#privacy">Privacy Policy</a>
         </p>
-        </footer>
-        </div>
-        
-    );
+      </footer>
+    </div>
+  );
 };
 
 export default Footer;
