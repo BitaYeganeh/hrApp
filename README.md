@@ -95,51 +95,62 @@ src/
 
 ---
 
-## 🧠 Key Logic
+🐾 Emoji Generator:
 
-### **📘 Work Experience Calculation**
+Converts animal names like:
+"Owl", "Snake", "Fox" into cute emoji avatars.
 
-Returns structured data:
+---
 
-```js
-{
-  years: Number,
-  months: Number
-}
-🐾 Emoji Generator
-Converts animal names like "Owl", "Snake", "Fox" into cute emoji avatars.
-🎯 Highlights
+🎯 Highlights:
 🧍 PersonCard Component
 🔄 Edit & display modes
 📝 PUT & DELETE support
-📌 Displays:
-Name
-Phone
-Salary
-Department
-Skills
-Work experience
-Automated reminders
-♻ Auto-refresh after backend updates
-➕ AddEmployee Page
-Dynamic form based on fields[]
-Fully controlled inputs
-Automatically converts comma-separated skills → array
-Submits through onAddEmployee()
--------
 
-🌐 Deployment
+---
+
+📌 Displays:
+
+- Name
+- Phone
+- Salary
+- Department
+- Skills
+- Work experience
+- Automated reminders
+  ♻ Auto-refresh after backend updates
+
+---
+
+➕ AddEmployee Page:
+
+- Dynamic form based on fields[]
+- Fully controlled inputs
+- Automatically converts comma-separated
+- skills → array
+- Submits through onAddEmployee()
+
+---
+
+🌐 Deployment:
+
 The application is fully deployed on Render.
-Service	Link
-🎨 Frontend	https://hrapp-1-68tb.onrender.com
-🗄 Backend API	https://hrapp-bec7.onrender.com/employees
------
+
+Service Link:
+
+🎨 Frontend:
+https://hrapp-1-68tb.onrender.com
+
+🗄 Backend API:
+https://hrapp-bec7.onrender.com/employees
+
+---
+
 👤 Author
 Bita Yeganeh
 🔗 GitHub: https://github.com/BitaYeganeh
 
-
 📜 License
+
 This project is open-source.
 Feel free to modify, improve, and share it! 💙
-```
