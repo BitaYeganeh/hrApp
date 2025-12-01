@@ -1,16 +1,145 @@
-# React + Vite
+<h1 align="center">🌟 HR Management System (React + JSON Server API) 🌟</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+A modern, user-friendly HR management web application built with <strong>React</strong>, <strong>React Router</strong>, <strong>Axios</strong>, and a <strong>JSON Server backend</strong>.
+<br/>
+This system enables teams to manage employees, track work experience, and automate HR reminders.
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <a href="https://hrapp-1-68tb.onrender.com"><strong>🌐 Live Demo</strong></a> •
+  <a href="https://hrapp-bec7.onrender.com/employees"><strong>📡 Backend API</strong></a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-blue" />
+  <img src="https://img.shields.io/badge/JSON--Server-API-green" />
+  <img src="https://img.shields.io/badge/Status-Live-success" />
+  <img src="https://img.shields.io/badge/Maintainer-Bita%20Yeganeh-pink" />
+</p>
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## ⭐ Features
 
-## Expanding the ESLint configuration
+### 👥 Employee Management
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📄 View all employees
+- ➕ Add new employees
+- ✏️ Edit department, salary, phone, skills, and more
+- ❌ Delete employees
+- ⚡ Instant UI update on CRUD actions
+
+---
+
+### 📅 Work Experience Automation
+
+Automatically calculates work experience based on `hireDate`:
+
+| Condition                             | HR Reminder                         |
+| ------------------------------------- | ----------------------------------- |
+| Work anniversary (5, 10, 15, … years) | 🎉 **Schedule recognition meeting** |
+| Less than 6 months                    | 🔔 **Schedule probation review**    |
+
+---
+
+### 🎨 Clean & Modular UI
+
+- 🧩 Employee cards with emoji avatars
+- 🔄 Edit & display modes
+- ℹ️ About page
+- 🚫 404 error page
+- 📌 Consistent layout with header + footer
+
+---
+
+### 🧩 Reusable Architecture
+
+- ⚙ Custom `useAxios()` hook
+- 🔧 Utilities:
+  - `calculateWorkExperience.js`
+  - `animalEmoji.js`
+- 🗂 Organized component structure & CSS modules
+
+---
+
+## 📁 Project Structure
+
+## 📁 Project Structure
+
+src/
+├── App.jsx
+├── Layout.jsx
+├── config.js
+├── main.jsx
+├── components/
+│ ├── Header.jsx
+│ ├── Footer.jsx
+│ ├── PersonList.jsx
+│ ├── Employee.jsx
+│ ├── PersonCard.jsx
+├── pages/
+│ ├── AddEmployee.jsx
+│ ├── About.jsx
+│ └── ErrorPage.jsx
+├── hooks/
+│ └── useAxios.js
+├── utils/
+│ ├── calculateWorkExperience.js
+│ └── animalEmoji.js
+└── styles/
+
+---
+
+---
+
+---
+
+## 🧠 Key Logic
+
+### **📘 Work Experience Calculation**
+
+Returns structured data:
+
+```js
+{
+  years: Number,
+  months: Number
+}
+🐾 Emoji Generator
+Converts animal names like "Owl", "Snake", "Fox" into cute emoji avatars.
+🎯 Highlights
+🧍 PersonCard Component
+🔄 Edit & display modes
+📝 PUT & DELETE support
+📌 Displays:
+Name
+Phone
+Salary
+Department
+Skills
+Work experience
+Automated reminders
+♻ Auto-refresh after backend updates
+➕ AddEmployee Page
+Dynamic form based on fields[]
+Fully controlled inputs
+Automatically converts comma-separated skills → array
+Submits through onAddEmployee()
+-------
+
+🌐 Deployment
+The application is fully deployed on Render.
+Service	Link
+🎨 Frontend	https://hrapp-1-68tb.onrender.com
+🗄 Backend API	https://hrapp-bec7.onrender.com/employees
+-----
+👤 Author
+Bita Yeganeh
+🔗 GitHub: https://github.com/BitaYeganeh
+
+
+📜 License
+This project is open-source.
+Feel free to modify, improve, and share it! 💙
+```

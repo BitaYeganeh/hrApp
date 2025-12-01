@@ -1,19 +1,17 @@
 .footer {
-  background-color: rgb(178, 206, 206);
-  padding: 40px;
-  box-shadow: 0 -4px 8px rgba(4, 92, 100);
-  font-size: 1rem;
   text-align: center;
-}
-.footer a {
-  color: blue;
-}
-.footer p {
-  text-align: center;
-  padding-top: 1rem;
+  padding: 20px;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-.footer a:hover {
-  color: red;
-  text-decoration: underline;
+.authorLink {
+  color: blue; /* link color */
+  text-decoration: underline; /* always underlined */
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.authorLink:hover {
+  color: #e307d8;
 }
