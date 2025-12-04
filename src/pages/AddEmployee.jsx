@@ -1,3 +1,10 @@
+import {
+  Button,
+  Card,
+  CardContent,
+  TextField,
+  Typography,
+} from '@mui/material';
 import styles from './AddEmployee.module.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -45,26 +52,50 @@ const AddEmployee = ({ formData, setFormData, onAddEmployee }) => {
   // ----------------------------
   return (
     <div className={styles.Container}>
-      <h2 className={styles.heading}>Add New Person</h2>
+      <Typography variant="h4" className={styles.heading}>
+        Add New Person
+      </Typography>
 
-      <form className={styles.form} onSubmit={handleSubmit}>
-        {fields.map((field) => (
-          <div key={field}>
-            <label htmlFor={field}>{capitalize(field)}:</label>
-            <input
-              id={field}
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              type={field === 'salary' ? 'number' : 'text'}
-            />
-          </div>
-        ))}
+      <Card sx={{ maxWidth: 500, margin: '0 auto', padding: 2 }}>
+        <CardContent>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            {fields.map((field) => (
+              <div key={field} className={styles.formRow}>
+                <TextField
+                  id={field}
+                  name={field}
+                  label={capitalize(field)}
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  value={formData[field]}
+                  onChange={handleChange}
+                  type={field === 'salary' ? 'number' : 'text'}
+                />
+              </div>
+            ))}
 
-        <button type="submit" className={styles.button}>
-          Add Employee
-        </button>
-      </form>
+            <Button
+              variant="contained"
+              type="submit"
+              className={styles.button}
+              sx={{
+                marginTop: 2,
+                paddingY: 1.2,
+                fontWeight: 'bold',
+                backgroundColor: 'rgb(178, 206, 206)',
+                color: 'black',
+                '&:hover': {
+                  backgroundColor: 'blue',
+                  color: 'white',
+                },
+              }}
+            >
+              Add Employee
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
     </div>
   );
 };
