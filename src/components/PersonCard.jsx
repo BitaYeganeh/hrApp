@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { calculateWorkExperience } from '../utils/calculateWorkExperience';
 import useAxios from '../hooks/useAxios';
 import React from 'react';
+import { Button, Card, CardContent, Typography } from '@mui/material';
 
 const PersonCard = ({
   id,
@@ -127,67 +128,98 @@ const PersonCard = ({
   );
 
   const renderDisplayCard = () => (
-    <div className={styles.person}>
-      {savedMessage && (
-        <div className={styles.savedMessage}>{savedMessage}</div>
-      )}
-
-      {workExperience.years > 0 && workExperience.years % 5 === 0 && (
-        <div className={styles.reminder}>
-          🎉 Schedule recognition meeting 🎉
-        </div>
-      )}
-
-      {workExperience.years === 0 && workExperience.months < 6 && (
-        <div className={styles.reminder}>🔔 Schedule probation review 🔔</div>
-      )}
-
-      <div className={styles.headerRow}>
-        <div className={styles.name}>
-          <span className={styles.animalIcon}>{getAnimalEmoji(animal)}</span>{' '}
-          {name} <span className={styles.title}>({title})</span>
-          <button
-            onClick={handleDelete}
-            className={styles.deleteButtonUnderName}
+    <Card className={styles.person} sx={{ padding: 2, marginBottom: 2 }}>
+      <CardContent>
+        {savedMessage && (
+          <Typography
+            className={styles.savedMessage}
+            variant="subtitle2"
+            sx={{ color: 'green' }}
           >
-            Remove
-          </button>
+            {savedMessage}
+          </Typography>
+        )}
+
+        {workExperience.years > 0 && workExperience.years % 5 === 0 && (
+          <Typography className={styles.reminder} variant="body2">
+            🎉 Schedule recognition meeting 🎉
+          </Typography>
+        )}
+
+        {workExperience.years === 0 && workExperience.months < 6 && (
+          <Typography className={styles.reminder} variant="body2">
+            🔔 Schedule probation review 🔔
+          </Typography>
+        )}
+
+        <div className={styles.headerRow}>
+          <div className={styles.name}>
+            <span className={styles.animalIcon}>{getAnimalEmoji(animal)}</span>{' '}
+            <Typography variant="h6" component="div">
+              {name}{' '}
+              <Typography
+                variant="subtitle2"
+                component="span"
+                className={styles.title}
+              >
+                ({title})
+              </Typography>
+            </Typography>
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={handleDelete}
+              className={styles.deleteButtonUnderName}
+            >
+              Remove
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.headerRow}>
-        <div className={styles.department}>Department: {department}</div>
-        <div className={styles.salary}>Salary: {salary}</div>
-      </div>
-
-      <div className={styles.infoRow}>
-        <div className={styles.email}>Email: {email}</div>
-        <div className={styles.phone}>Phone: {phone}</div>
-        <div className={styles.location}>Location: {location}</div>
-      </div>
-
-      <div className={styles.startDate}>Start Date: {startDate}</div>
-      <div className={styles.workExperience}>
-        Work Experience:
-        {workExperience.years > 0 &&
-          ` ${workExperience.years} year${workExperience.years > 1 ? 's' : ''}`}
-        {workExperience.months > 0 &&
-          ` ${workExperience.months} month${workExperience.months > 1 ? 's' : ''}`}
-      </div>
-
-      <div className={styles.skillsSection}>
-        <div className={styles.skillsList}>
-          {skills?.map((skill, i) => (
-            <span key={i} className={styles.skillBox}>
-              {skill}
-            </span>
-          ))}
+        <div className={styles.headerRow}>
+          <Typography className={styles.department}>
+            Department: {department}
+          </Typography>
+          <Typography className={styles.salary}>Salary: {salary}</Typography>
         </div>
-      </div>
-      <button onClick={toggleEdit} className={styles.editButton}>
-        Edit
-      </button>
-    </div>
+
+        <div className={styles.infoRow}>
+          <Typography className={styles.email}>Email: {email}</Typography>
+          <Typography className={styles.phone}>Phone: {phone}</Typography>
+          <Typography className={styles.location}>
+            Location: {location}
+          </Typography>
+        </div>
+
+        <Typography className={styles.startDate}>
+          Start Date: {startDate}
+        </Typography>
+        <Typography className={styles.workExperience}>
+          Work Experience:
+          {workExperience.years > 0 &&
+            ` ${workExperience.years} year${workExperience.years > 1 ? 's' : ''}`}
+          {workExperience.months > 0 &&
+            ` ${workExperience.months} month${workExperience.months > 1 ? 's' : ''}`}
+        </Typography>
+
+        <div className={styles.skillsSection}>
+          <div className={styles.skillsList}>
+            {skills?.map((skill, i) => (
+              <Typography variant="body2" key={i} className={styles.skillBox}>
+                {skill}
+              </Typography>
+            ))}
+          </div>
+        </div>
+        <Button
+          variant="contained"
+          onClick={toggleEdit}
+          className={styles.editButton}
+        >
+          Edit
+        </Button>
+      </CardContent>
+    </Card>
   );
 
   return isEditing ? renderEditForm() : renderDisplayCard();
