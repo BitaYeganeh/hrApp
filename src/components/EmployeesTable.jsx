@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
 import {
   Paper,
   Table,
@@ -9,71 +7,198 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from '@mui/material';
+import { getAnimalEmoji } from '../utils/animalEmoji';
+import useAxios from '../hooks/useAxios';
 
 const EmployeesTable = () => {
+  const axiosInstance = useAxios();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   // Fetch employees on mount
   useEffect(() => {
-    axios
+    axiosInstance
       .get('https://hrapp-bec7.onrender.com/employees')
       .then((res) => setData(res.data))
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
   if (loading) {
-    return <div>Loading...</div>;
+    return <Typography align="center">Loading employees...</Typography>;
   }
   if (error) {
-    return <div>Error {error.message}</div>;
+    return (
+      <Typography align="center" color="error">
+        Error {error.message}
+      </Typography>
+    );
   }
   if (!data || data.length === 0) {
-    return <div>No data found!</div>;
+    return <Typography align="center">No data found!</Typography>;
   }
   return (
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Title</TableCell>
-            <TableCell>Salary</TableCell>
-            <TableCell>Phone</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Animal</TableCell>
-            <TableCell>Start Date</TableCell>
-            <TableCell>Location</TableCell>
-            <TableCell>Department</TableCell>
-            <TableCell>Skills</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((employee) => (
-            <TableRow key={employee.id}>
-              <TableCell>{employee.id}</TableCell>
-              <TableCell>{employee.name}</TableCell>
-              <TableCell>{employee.title}</TableCell>
-              <TableCell>{employee.salary}</TableCell>
-              <TableCell>{employee.phone}</TableCell>
-              <TableCell>{employee.email}</TableCell>
-              <TableCell>{employee.animal}</TableCell>
-              <TableCell>{employee.startDate}</TableCell>
-              <TableCell>{employee.location}</TableCell>
-              <TableCell>{employee.department}</TableCell>
-
-              <TableCell>
-                {employee.skills && Array.isArray(employee.skills)
-                  ? employee.skills.join(', ')
-                  : '-'}
+    <div>
+      <Typography variant="h4" align="center" marginBottom={5}>
+        All Employees
+      </Typography>
+      <TableContainer component={Paper} sx={{ boxShadow: 10 }}>
+        <Table>
+          <TableHead>
+            <TableRow sx={{ backgroundColor: 'rgb(4, 92, 100)' }}>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                ID
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Name
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Title
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Salary
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Phone
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Email
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Animal
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Start Date
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Location
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Department
+              </TableCell>
+              <TableCell
+                sx={{
+                  border: '1px solid #ccc',
+                  textAlign: 'center',
+                  color: 'white',
+                }}
+              >
+                Skills
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {data.map((employee) => (
+              <TableRow
+                key={employee.id}
+                sx={{ backgroundColor: 'rgb(237, 244, 244)' }}
+              >
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.id}
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{ border: '1px solid #ccc', fontSize: '20px' }}
+                >
+                  {employee.name}
+                </TableCell>
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.title}
+                </TableCell>
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.salary}
+                </TableCell>
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.phone}
+                </TableCell>
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.email}
+                </TableCell>
+                <TableCell align="center" sx={{ fontSize: '28px' }}>
+                  {getAnimalEmoji(employee.animal)}
+                </TableCell>
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.startDate}
+                </TableCell>
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.location}
+                </TableCell>
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.department}
+                </TableCell>
+
+                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                  {employee.skills && Array.isArray(employee.skills)
+                    ? employee.skills.join(', ')
+                    : '-'}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 };
 export default EmployeesTable;
