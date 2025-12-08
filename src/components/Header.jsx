@@ -1,27 +1,55 @@
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { Button, Typography } from '@mui/material';
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>HR Management System</h1>
+      <Typography variant="h4" className={styles.title}>
+        HR Management System
+      </Typography>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
           <li>
-            <Link to="/" className={styles.navLink}>
+            <Button
+              component={Link}
+              to="/"
+              variant="contained"
+              className={styles.navLink}
+            >
               Home
-            </Link>
+            </Button>
           </li>
           <li>
-            <Link to="/add" className={styles.navLink}>
+            <Button
+              component={Link}
+              to="/add"
+              className={styles.navLink}
+              variant="contained"
+            >
               Add Employee
-            </Link>
+            </Button>
           </li>
           <li>
-            <Link to="/about" className={styles.navLink}>
+            <Button
+              component={Link}
+              to="/table"
+              className={styles.navLink}
+              variant="contained"
+            >
+              Employee Table
+            </Button>
+          </li>
+          <li>
+            <Button
+              component={Link}
+              to="/about"
+              className={styles.navLink}
+              variant="contained"
+            >
               About
-            </Link>
+            </Button>
           </li>
         </ul>
       </nav>

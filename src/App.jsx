@@ -8,6 +8,8 @@ import About from './pages/About';
 import AddEmployee from './pages/AddEmployee';
 import ErrorPage from './pages/ErrorPage';
 import useAxios from './hooks/useAxios';
+import EmployeesTable from './components/EmployeesTable';
+import EmployeeTablePage from './pages/EmployeeTablePage';
 function App() {
   // ----------------------------
   // State
@@ -118,6 +120,8 @@ function App() {
               />
             }
           />
+          {/* New Emplyee Table Page */}
+          <Route path="table" element={<EmployeeTablePage />} />
           {/* Wildcard route for all other paths */}
           <Route path="*" element={<ErrorPage />} />
         </Route>
