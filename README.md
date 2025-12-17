@@ -65,8 +65,6 @@ Automatically calculates work experience based on `hireDate`:
 
 ## 📁 Project Structure
 
-## 📁 Project Structure
-
 src/
 ├── App.jsx
 ├── Layout.jsx
@@ -88,10 +86,6 @@ src/
 │ ├── calculateWorkExperience.js
 │ └── animalEmoji.js
 └── styles/
-
----
-
----
 
 ---
 
