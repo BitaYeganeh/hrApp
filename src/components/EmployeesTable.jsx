@@ -43,161 +43,160 @@ const EmployeesTable = () => {
       <Typography variant="h4" align="center" marginBottom={5}>
         All Employees
       </Typography>
-      <TableContainer component={Paper} sx={{ boxShadow: 10 }}>
-        <Table>
-          <TableHead>
-            <TableRow sx={{ backgroundColor: 'rgb(4, 92, 100)' }}>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                ID
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Name
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Title
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Salary
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Phone
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Email
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Animal
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Start Date
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Location
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Department
-              </TableCell>
-              <TableCell
-                sx={{
-                  border: '1px solid #ccc',
-                  textAlign: 'center',
-                  color: 'white',
-                }}
-              >
-                Skills
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((employee) => (
-              <TableRow
-                key={employee.id}
-                sx={{ backgroundColor: 'rgb(237, 244, 244)' }}
-              >
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.id}
+      <div className="table-container">
+        <TableContainer component={Paper} sx={{ boxShadow: 10 }}>
+          <Table>
+            <TableHead>
+              <TableRow sx={{ backgroundColor: 'rgb(4, 92, 100)' }}>
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  ID
                 </TableCell>
                 <TableCell
-                  align="center"
-                  sx={{ border: '1px solid #ccc', fontSize: '20px' }}
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
                 >
-                  {employee.name}
+                  Name
                 </TableCell>
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.title}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Title
                 </TableCell>
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.salary}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Salary
                 </TableCell>
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.phone}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Phone
                 </TableCell>
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.email}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Email
                 </TableCell>
-                <TableCell align="center" sx={{ fontSize: '28px' }}>
-                  {getAnimalEmoji(employee.animal)}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Animal
                 </TableCell>
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.startDate}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Start Date
                 </TableCell>
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.location}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Location
                 </TableCell>
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.department}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Department
                 </TableCell>
-
-                <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
-                  {employee.skills && Array.isArray(employee.skills)
-                    ? employee.skills.join(', ')
-                    : '-'}
+                <TableCell
+                  sx={{
+                    border: '1px solid #ccc',
+                    textAlign: 'center',
+                    color: 'white',
+                  }}
+                >
+                  Skills
                 </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {data.map((employee) => (
+                <TableRow
+                  key={employee.id}
+                  sx={{ backgroundColor: 'rgb(237, 244, 244)' }}
+                >
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.id}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.name}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.title}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.salary}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.phone}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.email}
+                  </TableCell>
+                  <TableCell align="center">
+                    {getAnimalEmoji(employee.animal)}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.startDate}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.location}
+                  </TableCell>
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.department}
+                  </TableCell>
+
+                  <TableCell align="center" sx={{ border: '1px solid #ccc' }}>
+                    {employee.skills && Array.isArray(employee.skills)
+                      ? employee.skills.join(', ')
+                      : '-'}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 };

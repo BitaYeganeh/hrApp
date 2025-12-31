@@ -56,7 +56,13 @@ const AddEmployee = ({ formData, setFormData, onAddEmployee }) => {
         Add New Person
       </Typography>
 
-      <Card sx={{ maxWidth: 500, margin: '0 auto', padding: 2 }}>
+      <Card
+        sx={{
+          maxWidth: { xs: '100%', sm: 500 },
+          margin: '0 auto',
+          padding: { xs: 1, sm: 2 },
+        }}
+      >
         <CardContent>
           <form className={styles.form} onSubmit={handleSubmit}>
             {fields.map((field) => (
@@ -68,6 +74,7 @@ const AddEmployee = ({ formData, setFormData, onAddEmployee }) => {
                   fullWidth
                   margin="normal"
                   variant="outlined"
+                  size="small" // smaller input fields on mobile
                   value={formData[field]}
                   onChange={handleChange}
                   type={field === 'salary' ? 'number' : 'text'}
