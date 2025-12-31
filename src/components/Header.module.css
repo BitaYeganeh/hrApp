@@ -32,14 +32,14 @@
   color: #0909f5;
   text-decoration: underline;
 }
-/* ✅ Hamburger button */
+/* Hamburger button - hidden by default */
 .hamburger {
-  display: none; /* hidden on desktop */
+  display: none !important; /* force hide on desktop */
 }
 /* ✅ Mobile responsive */
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* show hamburger on mobile */
+    display: inline-flex !important; /* show hamburger on mobile */
   }
   .nav {
     display: none; /* hide nav links by default on mobile */
@@ -49,6 +49,7 @@
     width: 100%;
     background-color: rgb(178, 206, 206);
     padding: 1rem 0;
+    z-index: 10; /* ensure it appears above content */
   }
 
   .nav.navOpen {
