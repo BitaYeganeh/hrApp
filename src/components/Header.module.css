@@ -1,12 +1,11 @@
 .header {
-    display:flex;
-    justify-content: space-between;
-    background-color: rgb(178, 206, 206);
-    padding:40px;
-    text-align: center;
-    font-size: 1.2rem;
-    border-radius: 8px;
-
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(178, 206, 206);
+  padding: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 8px;
 }
 .header h1 {
   font-size: 1.5rem;
@@ -15,7 +14,6 @@
   margin: 0;
   font-size: 1.2rem;
 }
-
 
 .navList {
   list-style: none;
@@ -33,4 +31,36 @@
 .navLink:hover {
   color: #0909f5;
   text-decoration: underline;
+}
+/* ✅ Hamburger button */
+.hamburger {
+  display: none; /* hidden on desktop */
+}
+/* ✅ Mobile responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* show hamburger on mobile */
+  }
+  .nav {
+    display: none; /* hide nav links by default on mobile */
+    position: absolute;
+    top: 80px; /* below header */
+    left: 0;
+    width: 100%;
+    background-color: rgb(178, 206, 206);
+    padding: 1rem 0;
+  }
+
+  .nav.navOpen {
+    display: flex;
+    flex-direction: column; /* vertical menu */
+    gap: 1rem;
+  }
+  .navList {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
 }
