@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { getAnimalEmoji } from '../utils/animalEmoji';
 import useAxios from '../hooks/useAxios';
+import { API_URL } from '../config';
 
 const EmployeesTable = () => {
   const axiosInstance = useAxios();
@@ -20,8 +21,18 @@ const EmployeesTable = () => {
   // Fetch employees on mount
   useEffect(() => {
     axiosInstance
-      .get('https://hrapp-bec7.onrender.com/employees')
-      .then((res) => setData(res.data))
+      .get(`${API_URL}/employees`)
+      .then((res) => {
+        const employees = Array.isArray(res.data)
+          ? res.data
+          : res.data?.employees;
+
+        if (!Array.isArray(employees)) {
+          throw new Error('Expected employees array from API');
+        }
+
+        setData(employees);
+      })
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);

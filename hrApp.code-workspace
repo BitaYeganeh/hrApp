@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "name": "Web App",
+      "path": "web"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/playwright-report": true,
+      "**/test-results": true
+    }
+  }
+}
