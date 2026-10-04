@@ -3,6 +3,8 @@ import { getAnimalEmoji } from '../utils/animalEmoji';
 import { useState, useEffect } from 'react';
 import { calculateWorkExperience } from '../utils/calculateWorkExperience';
 import useAxios from '../hooks/useAxios';
+import { getReminders } from '../utils/reminders';
+import { API_URL } from '../config';
 import React from 'react';
 import { Button, Card, CardContent, Typography } from '@mui/material';
 
@@ -48,8 +50,9 @@ const PersonCard = ({
     setFormData(getInitialFormData());
   }, [salary, location, department, skills]);
 
-  // Calculate work experience
+  // Calculate work experience and HR reminders
   const workExperience = calculateWorkExperience(startDate);
+  const reminders = getReminders(workExperience);
 
   // ----------------------------
   // Handlers
@@ -76,7 +79,7 @@ const PersonCard = ({
       skills: formData.skills.split(',').map((skill) => skill.trim()),
     };
 
-    put(`https://hrapp-bec7.onrender.com/employees/${id}`, updatedEmployee)
+    put(`${API_URL}/employees/${id}`, updatedEmployee)
       .then((res) => {
         updateEmployee(res.data);
         setIsEditing(false);
@@ -90,7 +93,7 @@ const PersonCard = ({
     if (!window.confirm('Are you sure you want to delete this employee?')) {
       return;
     }
-    del(`https://hrapp-bec7.onrender.com/employees/${id}`)
+    del(`${API_URL}/employees/${id}`)
       .then(() => {
         deleteEmployee(id);
       })
@@ -140,13 +143,13 @@ const PersonCard = ({
           </Typography>
         )}
 
-        {workExperience.years > 0 && workExperience.years % 5 === 0 && (
+        {reminders.includes('recognition') && (
           <Typography className={styles.reminder} variant="body2">
             🎉 Schedule recognition meeting 🎉
           </Typography>
         )}
 
-        {workExperience.years === 0 && workExperience.months < 6 && (
+        {reminders.includes('probation') && (
           <Typography className={styles.reminder} variant="body2">
             🔔 Schedule probation review 🔔
           </Typography>

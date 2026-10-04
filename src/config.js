@@ -1,1 +1,2 @@
-export const API_URL = 'https://hrapp-bec7.onrender.com';
+// Overridable for local testing (e.g. VITE_API_URL=http://localhost:3001)
+export const API_URL = import.meta.env.VITE_API_URL || 'https://hrapp-bec7.onrender.com';
