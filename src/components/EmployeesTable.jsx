@@ -25,7 +25,7 @@ const EmployeesTable = () => {
       .then((res) => setData(res.data))
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [axiosInstance]);
   if (loading) {
     return <Typography align="center">Loading employees...</Typography>;
   }

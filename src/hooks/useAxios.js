@@ -1,22 +1,24 @@
 import axios from 'axios';
 
-const useAxios = () => {
+// Created once, so components get the same functions on every render
+// and can safely list them as useEffect dependencies
+const api = {
   //GET request
-  const get = (url) => axios.get(url);
+  get: (url) => axios.get(url),
 
   //POST request
-  const post = (url, data) => axios.post(url, data);
+  post: (url, data) => axios.post(url, data),
 
   //PUT request
-  const put = (url, data) => axios.put(url, data);
+  put: (url, data) => axios.put(url, data),
 
   //PATCH request
-  const patch = (url, data) => axios.patch(url, data);
+  patch: (url, data) => axios.patch(url, data),
 
   //DELETE request
-  const del = (url) => axios.delete(url);
-
-  return { get, post, put, patch, del };
+  del: (url) => axios.delete(url),
 };
+
+const useAxios = () => api;
 
 export default useAxios;
