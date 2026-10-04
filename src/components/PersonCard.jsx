@@ -8,6 +8,14 @@ import { API_URL } from '../config';
 import React from 'react';
 import { Button, Card, CardContent, Typography } from '@mui/material';
 
+// Editable fields, built from the current props
+const getInitialFormData = (salary, location, department, skills) => ({
+  salary: salary || '',
+  location: location || '',
+  department: department || '',
+  skills: skills ? skills.join(', ') : '',
+});
+
 const PersonCard = ({
   id,
   name,
@@ -29,25 +37,17 @@ const PersonCard = ({
   const { put, del } = useAxios(); // ALWAYS at the top
 
   // ----------------------------
-  // Helper: get initial form data
-  // ----------------------------
-  const getInitialFormData = () => ({
-    salary: salary || '',
-    location: location || '',
-    department: department || '',
-    skills: skills ? skills.join(', ') : '',
-  });
-
-  // ----------------------------
   // State
   // ----------------------------
   const [isEditing, setIsEditing] = useState(false);
-  const [formData, setFormData] = useState(getInitialFormData());
+  const [formData, setFormData] = useState(() =>
+    getInitialFormData(salary, location, department, skills)
+  );
   const [savedMessage, setSavedMessage] = useState('');
 
   // Sync formData when props change
   useEffect(() => {
-    setFormData(getInitialFormData());
+    setFormData(getInitialFormData(salary, location, department, skills));
   }, [salary, location, department, skills]);
 
   // Calculate work experience and HR reminders

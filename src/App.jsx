@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -66,7 +66,7 @@ function App() {
   const { get, post } = useAxios();
 
   // Fetch employees from the API
-  const loadEmployees = () => {
+  const loadEmployees = useCallback(() => {
     setStatus('loading');
     get(`${API_URL}/employees`)
       .then((response) => {
@@ -77,11 +77,11 @@ function App() {
         console.error('Error loading employees:', error.message);
         setStatus('error');
       });
-  };
+  }, [get]);
 
   useEffect(() => {
     loadEmployees();
-  }, []);
+  }, [loadEmployees]);
 
   // ----------------------------
   // Event handlers
