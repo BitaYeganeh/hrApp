@@ -51,7 +51,6 @@
     padding: 1rem 0;
     z-index: 10; /* ensure it appears above content */
   }
-
   .nav.navOpen {
     display: flex;
     flex-direction: column; /* vertical menu */
