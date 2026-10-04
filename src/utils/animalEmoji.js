@@ -12,7 +12,6 @@ const Emojis = {
   crab: '🦀',
   fox: '🦊',
   hedgehog: '🦔',
-  horse: '🐎',
   fish: '🐠',
   chicken: '🐥',
 };
