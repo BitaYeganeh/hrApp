@@ -1,0 +1,43 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Aino Virtanen",
+      "title": "HR Manager",
+      "salary": 4200,
+      "phone": "040-1234567",
+      "email": "aino.virtanen@example.com",
+      "animal": "Owl",
+      "startDate": "2015-09-29",
+      "location": "Helsinki",
+      "department": "Human Resources",
+      "skills": ["Recruiting", "Communication"]
+    },
+    {
+      "id": "2",
+      "name": "Liina Koskinen",
+      "title": "Backend Developer",
+      "salary": 4800,
+      "phone": "040-7654321",
+      "email": "liina.koskinen@example.com",
+      "animal": "Snake",
+      "startDate": "2023-01-15",
+      "location": "Espoo",
+      "department": "IT",
+      "skills": ["Node.js", "SQL"]
+    },
+    {
+      "id": "4",
+      "name": "Mikko Laine",
+      "title": "QA Engineer",
+      "salary": 4500,
+      "phone": "040-1112223",
+      "email": "mikko.laine@example.com",
+      "animal": "Fox",
+      "startDate": "2021-06-01",
+      "location": "Vantaa",
+      "department": "IT",
+      "skills": ["Playwright", "Testing"]
+    }
+  ]
+}
