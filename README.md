@@ -82,17 +82,6 @@ The project is covered by **39 automated tests** that run on every push with Git
 
 End-to-end tests run against a **local copy of the data** (`e2e/fixtures/db.json`), so the live API is never touched.
 
-### Bugs found and fixed through testing
-
-| # | Bug | Test that covers it |
-| --- | --- | --- |
-| 1 | Work experience ignored the day of the month (hired 31 Mar → "1 month" on 1 Apr) | `calculateWorkExperience.test.js` |
-| 2 | Future start dates showed negative experience ("-1 years 11 months") | `calculateWorkExperience.test.js` |
-| 3 | New employee ids used `length + 1`, reusing an existing id after a delete | `nextEmployeeId.test.js`, e2e "unique id" |
-| 4 | Deleted employees reappeared after adding someone new | e2e "deletes an employee…" |
-| 5 | Blank page while the free API server woke up (~30 s) | `PersonList.test.jsx` |
-| 6 | Duplicate `horse` key in the emoji map | ESLint in CI |
-
 ### Run the tests
 
 ```bash
