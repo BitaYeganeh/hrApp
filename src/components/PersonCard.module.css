@@ -1,4 +1,7 @@
 .person {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   border-color: rgb(178, 206, 206) !important;
   border-radius: 14px !important;
   transition: box-shadow 0.2s, transform 0.2s;
@@ -9,6 +12,7 @@
 }
 
 .content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -115,6 +119,7 @@
 }
 
 .actions {
+  margin-top: auto; /* keep the buttons on the card's bottom edge */
   display: flex;
   align-items: center;
   justify-content: flex-end;

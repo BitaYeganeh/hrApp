@@ -26,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.25rem;
-  align-items: start;
+  align-items: stretch; /* cards in a row share one height */
 }
 
 @media (max-width: 600px) {

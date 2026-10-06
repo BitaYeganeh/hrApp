@@ -20,7 +20,7 @@ This system enables teams to manage employees, track work experience, and automa
 </p>
 
 <p align="center">
-  <img src="screenshots/employees.webp" alt="Employee list with probation-review and work-anniversary reminders" width="800" />
+  <img src="screenshots/employees-v2.webp" alt="Employee list with probation-review and work-anniversary reminders" width="800" />
 </p>
 
 ---
