@@ -1,7 +1,11 @@
-import { act, render, screen } from '@testing-library/react';
+import { act, render as rtlRender, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PersonList from './PersonList';
+
+// The list links to the add page, so it needs a router
+const render = (ui) => rtlRender(<MemoryRouter>{ui}</MemoryRouter>);
 
 const employee = (overrides = {}) => ({
   id: '1',

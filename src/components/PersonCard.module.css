@@ -1,191 +1,137 @@
 .person {
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: rgb(237, 244, 244);
-  text-align: left;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-color: black;
-  border-radius: 8px;
-  box-shadow: 10px 10px 10px rgb(4, 92, 100);
-  margin-bottom: 20px;
+  border-color: rgb(178, 206, 206) !important;
+  border-radius: 14px !important;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.animalIcon {
-  font-size: 20px;
-}
-.name {
-  color: rgb(2, 36, 35);
-  font-size: 14px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  text-align: center;
-  font-weight: 700;
-}
-.deleteButtonUnderName {
-  background-color: #ff4d4f; /* same red */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 0.7rem;
-  margin-top: 5px; /* space below name */
-  cursor: pointer;
-  transition: opacity 0.2s;
-  display: block;
+.person:hover {
+  box-shadow: 0 8px 24px rgba(31, 78, 78, 0.1);
 }
 
-.deleteButtonUnderName:hover {
-  opacity: 0.8;
-}
-.headerRow {
-  display: flex;
-  justify-content: space-between; /* pushes left/right sides apart */
-  align-items: center; /* vertically centers items */
-  border-bottom: 2px solid rgb(4, 92, 100); /* optional underline */
-  padding-bottom: 8px;
-  margin-bottom: 12px;
-}
-.infoRow {
-  border-bottom: 2px solid rgb(4, 92, 100); /* optional underline */
-  padding-bottom: 12px;
-}
-.department,
-.salary,
-.phone,
-.location {
-  color: rgb(4, 52, 48);
-  font-size: 0.75rem;
-}
-.email {
-  color: blue;
-}
-.title {
-  color: rgb(2, 36, 35);
-  font-size: 14px;
-}
-.salary {
-  text-align: right;
-  margin-top: 1px;
-}
-.startDate {
-  text-align: left;
-  margin-top: 5px;
-}
-.location {
-  text-align: left;
-  margin-top: 1px;
-}
-
-.reminder {
-  color: rgb(196, 65, 165);
-  padding-top: 6px;
-  align-content: right;
-  text-align: right;
-}
-.skillsSection {
-  margin-top: 12px;
-  margin-bottom: 10px;
-}
-
-.skillsLabel {
-  font-weight: 600;
-  color: rgb(4, 52, 48);
-  padding-bottom: 10px;
-}
-
-.skillsList {
-  display: flex;
-  flex-wrap: wrap; /* makes them wrap nicely on small screens */
-  gap: 4px; /* space between boxes */
-}
-
-.skillBox {
-  background-color: rgb(222, 243, 243); /* light teal background */
-  color: blue;
-  border: 1px solid rgb(4, 92, 100);
-  border-radius: 5px; /* rounded pill style */
-  padding: 4px 10px;
-  font-size: 0.7rem;
-  margin-bottom: 10px;
-}
-
-/* optional hover effect */
-.skillBox:hover {
-  background-color: rgb(4, 92, 100);
-  color: white;
-  cursor: default;
-}
-.editButton {
-  display: block; /* make button block-level */
-  margin: 10px auto; /* top-bottom 10px, left-right auto */
-  padding: 5px 9px;
-  background-color: rgb(4, 92, 100);
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 3rem;
-  border: none;
-}
-.savedMessage {
-  background: #e60fc2;
-  color: #c6ddc7;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 14px;
-  margin-bottom: 8px;
-  width: fit-content;
-  animation: fadeOut 10s forwards;
-}
-.personEditForm {
+.content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
-  background-color: rgb(237, 244, 244);
-  border-radius: 8px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem !important;
 }
-.personEditForm label {
-  font-weight: 600;
-  color: rgb(4, 52, 48);
-  margin-bottom: 4px;
-}
-.editButtons {
+
+.headerRow {
   display: flex;
-  justify-content: center;
-  gap: 10px; /* space between buttons */
-  margin-top: 10px; /* optional spacing from inputs */
+  align-items: center;
+  gap: 0.85rem;
 }
 
-/* Cancel button (first button) */
-.editButtons button:first-child {
-  background-color: #ff4d4f; /* red */
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.2s;
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgb(237, 244, 244);
+  font-size: 1.6rem;
 }
 
-.editButtons button:first-child:hover {
-  opacity: 0.8;
+.identity {
+  min-width: 0;
 }
 
-/* Save button (second button) */
-.editButtons button:last-child {
-  background-color: #52c41a; /* green */
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.2s;
+.name {
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #1d2a2a;
 }
 
-.editButtons button:last-child:hover {
-  opacity: 0.8;
+.title {
+  color: #4a5c5c;
+}
+
+.reminder {
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.recognition {
+  background: #fdf3e1;
+  color: #7a4b00;
+}
+
+.probation {
+  background: #e8f0fe;
+  color: #1a4b8c;
+}
+
+.details {
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.925rem;
+}
+
+.detailRow {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.75rem;
+}
+
+.detailRow dt {
+  color: #4a5c5c;
+}
+
+.detailRow dd {
+  margin: 0;
+  color: #1d2a2a;
+  overflow-wrap: anywhere;
+}
+
+.detailRow a {
+  color: #2f6f6f;
+  text-decoration: none;
+}
+
+.detailRow a:hover {
+  text-decoration: underline;
+}
+
+.skillsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skillBox {
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgb(237, 244, 244);
+  color: #1f4e4e;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgb(225, 236, 236);
+}
+
+.savedMessage {
+  margin-right: auto;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
 }
