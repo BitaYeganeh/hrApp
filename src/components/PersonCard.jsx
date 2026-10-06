@@ -4,9 +4,12 @@ import { useState, useEffect } from 'react';
 import { calculateWorkExperience } from '../utils/calculateWorkExperience';
 import useAxios from '../hooks/useAxios';
 import { getReminders } from '../utils/reminders';
+import { formatDate, formatExperience, formatSalary } from '../utils/format';
 import { API_URL } from '../config';
 import React from 'react';
-import { Button, Card, CardContent, Typography } from '@mui/material';
+import { Button, Card, CardContent, TextField, Typography } from '@mui/material';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 // Editable fields, built from the current props
 const getInitialFormData = (salary, location, department, skills) => ({
@@ -15,6 +18,18 @@ const getInitialFormData = (salary, location, department, skills) => ({
   department: department || '',
   skills: skills ? skills.join(', ') : '',
 });
+
+const editFields = [
+  { name: 'salary', label: 'Salary (€ / month)', type: 'number' },
+  { name: 'location', label: 'Location', type: 'text' },
+  { name: 'department', label: 'Department', type: 'text' },
+  {
+    name: 'skills',
+    label: 'Skills',
+    type: 'text',
+    helperText: 'Separate skills with commas',
+  },
+];
 
 const PersonCard = ({
   id,
@@ -44,6 +59,7 @@ const PersonCard = ({
     getInitialFormData(salary, location, department, skills)
   );
   const [savedMessage, setSavedMessage] = useState('');
+  const [saving, setSaving] = useState(false);
 
   // Sync formData when props change
   useEffect(() => {
@@ -62,9 +78,13 @@ const PersonCard = ({
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const toggleEdit = () => setIsEditing((prev) => !prev);
+  const handleCancel = () => {
+    setFormData(getInitialFormData(salary, location, department, skills));
+    setIsEditing(false);
+  };
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault();
     const updatedEmployee = {
       id,
       name,
@@ -76,21 +96,27 @@ const PersonCard = ({
       salary: formData.salary,
       location: formData.location,
       department: formData.department,
-      skills: formData.skills.split(',').map((skill) => skill.trim()),
+      skills: formData.skills
+        .split(',')
+        .map((skill) => skill.trim())
+        .filter(Boolean),
     };
 
+    setSaving(true);
     put(`${API_URL}/employees/${id}`, updatedEmployee)
       .then((res) => {
         updateEmployee(res.data);
         setIsEditing(false);
         setSavedMessage('Changes saved!');
-        setTimeout(() => setSavedMessage(''), 2000);
+        setTimeout(() => setSavedMessage(''), 2500);
       })
-      .catch((err) => console.error('Error updating employee:', err.message));
+      .catch((err) => console.error('Error updating employee:', err.message))
+      .finally(() => setSaving(false));
   };
+
   // Delete employee handler
   const handleDelete = () => {
-    if (!window.confirm('Are you sure you want to delete this employee?')) {
+    if (!window.confirm(`Remove ${name} from the employee list?`)) {
       return;
     }
     del(`${API_URL}/employees/${id}`)
@@ -101,131 +127,122 @@ const PersonCard = ({
   };
 
   // ----------------------------
-  // Render helpers
+  // Render
   // ----------------------------
-  const editFields = [
-    { name: 'salary', label: 'Salary', type: 'number' },
-    { name: 'location', label: 'Location', type: 'text' },
-    { name: 'department', label: 'Department', type: 'text' },
-    { name: 'skills', label: 'Skills (comma separated)', type: 'text' },
+  const details = [
+    { label: 'Department', value: department },
+    { label: 'Salary', value: formatSalary(salary) },
+    {
+      label: 'Email',
+      value: email ? <a href={`mailto:${email}`}>{email}</a> : '—',
+    },
+    { label: 'Phone', value: phone ? <a href={`tel:${phone}`}>{phone}</a> : '—' },
+    { label: 'Location', value: location },
+    { label: 'Started', value: formatDate(startDate) },
+    { label: 'Experience', value: formatExperience(workExperience) },
   ];
 
-  const renderEditForm = () => (
-    <div className={styles.personEditForm}>
-      {editFields.map((field) => (
-        <div key={field.name}>
-          <label>{field.label}:</label>
-          <input
-            type={field.type}
-            name={field.name}
-            value={formData[field.name]}
-            onChange={handleChange}
-          />
+  return (
+    <Card className={styles.person} variant="outlined">
+      <CardContent className={styles.content}>
+        <div className={styles.headerRow}>
+          <span className={styles.avatar} aria-hidden="true">
+            {getAnimalEmoji(animal)}
+          </span>
+          <div className={styles.identity}>
+            <Typography variant="h6" component="h2" className={styles.name}>
+              {name}
+            </Typography>
+            <Typography variant="body2" className={styles.title}>
+              {title}
+            </Typography>
+          </div>
         </div>
-      ))}
-      <div className={styles.editButtons}>
-        <button onClick={toggleEdit}>Cancel</button>
-        <button onClick={handleSave}>Save</button>
-      </div>
-    </div>
-  );
-
-  const renderDisplayCard = () => (
-    <Card className={styles.person} sx={{ padding: 2, marginBottom: 2 }}>
-      <CardContent>
-        {savedMessage && (
-          <Typography
-            className={styles.savedMessage}
-            variant="subtitle2"
-            sx={{ color: 'green' }}
-          >
-            {savedMessage}
-          </Typography>
-        )}
 
         {reminders.includes('recognition') && (
-          <Typography className={styles.reminder} variant="body2">
-            🎉 Schedule recognition meeting 🎉
-          </Typography>
+          <p className={`${styles.reminder} ${styles.recognition}`}>
+            <span aria-hidden="true">🎉</span> Schedule recognition meeting
+          </p>
         )}
 
         {reminders.includes('probation') && (
-          <Typography className={styles.reminder} variant="body2">
-            🔔 Schedule probation review 🔔
-          </Typography>
+          <p className={`${styles.reminder} ${styles.probation}`}>
+            <span aria-hidden="true">🔔</span> Schedule probation review
+          </p>
         )}
 
-        <div className={styles.headerRow}>
-          <div className={styles.name}>
-            <span className={styles.animalIcon}>{getAnimalEmoji(animal)}</span>{' '}
-            <Typography variant="h6" component="div">
-              {name}{' '}
-              <Typography
-                variant="subtitle2"
-                component="span"
-                className={styles.title}
-              >
-                ({title})
-              </Typography>
-            </Typography>
-            <Button
-              variant="outlined"
-              color="error"
-              onClick={handleDelete}
-              className={styles.deleteButtonUnderName}
-            >
-              Remove
-            </Button>
-          </div>
-        </div>
-
-        <div className={styles.headerRow}>
-          <Typography className={styles.department}>
-            Department: {department}
-          </Typography>
-          <Typography className={styles.salary}>Salary: {salary}</Typography>
-        </div>
-
-        <div className={styles.infoRow}>
-          <Typography className={styles.email}>Email: {email}</Typography>
-          <Typography className={styles.phone}>Phone: {phone}</Typography>
-          <Typography className={styles.location}>
-            Location: {location}
-          </Typography>
-        </div>
-
-        <Typography className={styles.startDate}>
-          Start Date: {startDate}
-        </Typography>
-        <Typography className={styles.workExperience}>
-          Work Experience:
-          {workExperience.years > 0 &&
-            ` ${workExperience.years} year${workExperience.years > 1 ? 's' : ''}`}
-          {workExperience.months > 0 &&
-            ` ${workExperience.months} month${workExperience.months > 1 ? 's' : ''}`}
-        </Typography>
-
-        <div className={styles.skillsSection}>
-          <div className={styles.skillsList}>
-            {skills?.map((skill, i) => (
-              <Typography variant="body2" key={i} className={styles.skillBox}>
-                {skill}
-              </Typography>
+        {isEditing ? (
+          <form className={styles.editForm} onSubmit={handleSave}>
+            {editFields.map((field) => (
+              <TextField
+                key={field.name}
+                name={field.name}
+                label={field.label}
+                type={field.type}
+                value={formData[field.name]}
+                onChange={handleChange}
+                helperText={field.helperText}
+                size="small"
+                fullWidth
+              />
             ))}
-          </div>
-        </div>
-        <Button
-          variant="contained"
-          onClick={toggleEdit}
-          className={styles.editButton}
-        >
-          Edit
-        </Button>
+            <div className={styles.actions}>
+              <Button variant="text" onClick={handleCancel}>
+                Cancel
+              </Button>
+              <Button variant="contained" type="submit" disabled={saving}>
+                Save
+              </Button>
+            </div>
+          </form>
+        ) : (
+          <>
+            <dl className={styles.details}>
+              {details.map((item) => (
+                <div key={item.label} className={styles.detailRow}>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value || '—'}</dd>
+                </div>
+              ))}
+            </dl>
+
+            {skills?.length > 0 && (
+              <ul className={styles.skillsList} aria-label="Skills">
+                {skills.map((skill, i) => (
+                  <li key={i} className={styles.skillBox}>
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div className={styles.actions}>
+              {savedMessage && (
+                <span className={styles.savedMessage} role="status">
+                  {savedMessage}
+                </span>
+              )}
+              <Button
+                variant="text"
+                color="error"
+                startIcon={<DeleteOutlineIcon />}
+                onClick={handleDelete}
+              >
+                Remove
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<EditOutlinedIcon />}
+                onClick={() => setIsEditing(true)}
+              >
+                Edit
+              </Button>
+            </div>
+          </>
+        )}
       </CardContent>
     </Card>
   );
-
-  return isEditing ? renderEditForm() : renderDisplayCard();
 };
 
 export default PersonCard;

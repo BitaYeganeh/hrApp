@@ -1,75 +1,64 @@
 import styles from './Header.module.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import React, { useState } from 'react';
-import { Button, IconButton, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu'; // ✅ Added MenuIcon
+import { IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+
+const links = [
+  { to: '/', label: 'Employees', end: true },
+  { to: '/add', label: 'Add employee' },
+  { to: '/table', label: 'Table' },
+  { to: '/about', label: 'About' },
+];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className={styles.header}>
-      <Typography variant="h4" className={styles.title}>
-        HR Management System
-      </Typography>
+      <div className={styles.inner}>
+        <Link to="/" className={styles.brand} onClick={() => setMenuOpen(false)}>
+          <span className={styles.logo} aria-hidden="true">
+            HR
+          </span>
+          HR Management System
+        </Link>
 
-      {/* ✅ Hamburger icon for mobile */}
-      <IconButton
-        className={styles.hamburger}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <MenuIcon />
-      </IconButton>
+        {/* Menu button, shown on small screens only */}
+        <IconButton
+          className={styles.hamburger}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="main-nav"
+        >
+          {menuOpen ? <CloseIcon /> : <MenuIcon />}
+        </IconButton>
 
-      <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
-        {' '}
-        {/* ✅ Added navOpen toggle */}
-        <ul className={styles.navList}>
-          <li>
-            <Button
-              component={Link}
-              to="/"
-              variant="contained"
-              className={styles.navLink}
-              onClick={() => setMenuOpen(false)} // ✅ Close menu on link click
-            >
-              Home
-            </Button>
-          </li>
-          <li>
-            <Button
-              component={Link}
-              to="/add"
-              className={styles.navLink}
-              variant="contained"
-              onClick={() => setMenuOpen(false)} // ✅ Close menu on link click
-            >
-              Add Employee
-            </Button>
-          </li>
-          <li>
-            <Button
-              component={Link}
-              to="/table"
-              className={styles.navLink}
-              variant="contained"
-              onClick={() => setMenuOpen(false)} // ✅ Close menu on link click
-            >
-              Employee Table
-            </Button>
-          </li>
-          <li>
-            <Button
-              component={Link}
-              to="/about"
-              className={styles.navLink}
-              variant="contained"
-              onClick={() => setMenuOpen(false)} // ✅ Close menu on link click
-            >
-              About
-            </Button>
-          </li>
-        </ul>
-      </nav>
+        <nav
+          id="main-nav"
+          aria-label="Main"
+          className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}
+        >
+          <ul className={styles.navList}>
+            {links.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  end={link.end}
+                  className={({ isActive }) =>
+                    `${styles.navLink} ${isActive ? styles.active : ''}`
+                  }
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

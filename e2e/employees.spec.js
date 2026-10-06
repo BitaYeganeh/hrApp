@@ -69,7 +69,7 @@ test.describe.serial('Employee management', () => {
 
     await expect(page.getByText('Changes saved!')).toBeVisible();
     await page.reload();
-    await expect(card(page, 'Sanna Testaaja')).toContainText('Location: Tampere');
+    await expect(card(page, 'Sanna Testaaja')).toContainText('Tampere');
   });
 
   test('deletes an employee and they do not come back after adding another', async ({ page }) => {

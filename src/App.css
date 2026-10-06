@@ -17,7 +17,6 @@
 }
 .main-content {
   flex: 1; /* take all space between header & footer */
-  padding: 0.5rem;
 }
 .siteTitle {
   font-weight: bold;
@@ -49,7 +48,7 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip; /* 'hidden' would break the sticky header */
 }
 
 img {
@@ -102,13 +101,6 @@ textarea {
 
   .formRow {
     margin-bottom: 0.5rem;
-  }
-}
-@media (max-width: 768px) {
-  header,
-  footer {
-    padding: 0.5rem 1rem;
-    text-align: center;
   }
 }
 @media (max-width: 768px) {

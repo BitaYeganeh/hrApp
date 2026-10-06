@@ -1,0 +1,101 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.heading {
+  font-weight: 700 !important;
+  color: #1f4e4e;
+  margin-bottom: 1.25rem !important;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.search {
+  width: min(100%, 22rem);
+  background: #fff;
+}
+
+.count {
+  color: #4a5c5c;
+  font-size: 0.9rem !important;
+}
+
+.tableWrap {
+  background: #fff;
+  border: 1px solid rgb(178, 206, 206);
+  border-radius: 14px;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.headCell {
+  background: rgb(237, 244, 244) !important;
+  color: #1f4e4e !important;
+  font-weight: 700 !important;
+  white-space: nowrap;
+}
+
+.nameCell {
+  font-weight: 600 !important;
+  white-space: nowrap;
+}
+
+.avatar {
+  margin-right: 0.5rem;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.link {
+  color: #2f6f6f;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .heading {
+    font-size: 1.6rem !important;
+  }
+}
+
+.contactCell a {
+  display: block;
+}
+
+.phone {
+  display: block;
+  color: #4a5c5c;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.skillsCell {
+  min-width: 10rem;
+}
