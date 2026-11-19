@@ -1,122 +1,66 @@
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: #fff;
-  border-bottom: 1px solid rgb(178, 206, 206);
-}
-
-.inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.85rem 1.5rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #1f4e4e;
-  text-decoration: none;
-}
-
-.logo {
-  display: inline-grid;
-  place-items: center;
-  width: 2.1rem;
-  height: 2.1rem;
+  background-color: rgb(178, 206, 206);
+  padding: 40px;
+  text-align: center;
+  font-size: 1.2rem;
   border-radius: 8px;
-  background: #2f6f6f;
-  color: #fff;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
+}
+.header h1 {
+  font-size: 1.5rem;
+}
+.nav {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 .navList {
   list-style: none;
   display: flex;
-  gap: 0.25rem;
+  gap: 2rem;
   padding: 0;
   margin: 0;
 }
 
 .navLink {
-  display: block;
-  padding: 0.5rem 0.9rem;
-  border-radius: 8px;
-  color: #4a5c5c;
-  font-weight: 600;
-  font-size: 0.95rem;
   text-decoration: none;
-  transition: background-color 0.15s, color 0.15s;
+  font-weight: 500;
 }
 
 .navLink:hover {
-  background: rgb(237, 244, 244);
-  color: #1f4e4e;
+  color: #0909f5;
+  text-decoration: underline;
 }
-
-.navLink:focus-visible {
-  outline: 2px solid #2f6f6f;
-  outline-offset: 2px;
-}
-
-.active {
-  background: rgb(237, 244, 244);
-  color: #1f4e4e;
-  box-shadow: inset 0 -2px 0 #2f6f6f;
-}
-
-/* Menu button - hidden on desktop */
+/* Hamburger button - hidden by default */
 .hamburger {
-  display: none !important;
+  display: none !important; /* force hide on desktop */
 }
-
+/* ✅ Mobile responsive */
 @media (max-width: 768px) {
-  .inner {
-    padding: 0.7rem 1rem;
-  }
-
-  .brand {
-    font-size: 1rem;
-  }
-
   .hamburger {
-    display: inline-flex !important;
+    display: inline-flex !important; /* show hamburger on mobile */
   }
-
   .nav {
-    display: none;
+    display: none; /* hide nav links by default on mobile */
     position: absolute;
-    top: 100%;
+    top: 80px; /* below header */
     left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid rgb(178, 206, 206);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-    padding: 0.5rem 1rem 1rem;
+    width: 100%;
+    background-color: rgb(178, 206, 206);
+    padding: 1rem 0;
+    z-index: 10; /* ensure it appears above content */
   }
-
   .nav.navOpen {
-    display: block;
+    display: flex;
+    flex-direction: column; /* vertical menu */
+    gap: 1rem;
   }
-
   .navList {
     flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .navLink {
-    padding: 0.75rem 1rem;
-  }
-
-  .active {
-    box-shadow: inset 3px 0 0 #2f6f6f;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    align-items: center;
   }
 }
