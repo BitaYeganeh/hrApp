@@ -42,5 +42,10 @@
     "prettier": "^3.7.1",
     "vite": "^7.1.7",
     "vitest": "^3.2.7"
+  },
+  "allowScripts": {
+    "esbuild@0.25.11": true,
+    "@swc/core@1.13.5": true,
+    "fsevents@2.3.3": true
   }
 }

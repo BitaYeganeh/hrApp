@@ -19,10 +19,6 @@ This system enables teams to manage employees, track work experience, and automa
   <img src="https://img.shields.io/badge/Maintainer-Bita%20Yeganeh-pink" />
 </p>
 
-<p align="center">
-  <img src="screenshots/employees-v2.webp" alt="Employee list with probation-review and work-anniversary reminders" width="800" />
-</p>
-
 ---
 
 ## ⭐ Features
@@ -86,16 +82,6 @@ The project is covered by **39 automated tests** that run on every push with Git
 
 End-to-end tests run against a **local copy of the data** (`e2e/fixtures/db.json`), so the live API is never touched.
 
-### Where the tests are
-
-| Tests | Location |
-| --- | --- |
-| Unit | [`src/utils/*.test.js`](src/utils) — next to the utility they test |
-| Component | [`src/components/PersonList.test.jsx`](src/components/PersonList.test.jsx) |
-| End-to-end | [`e2e/employees.spec.js`](e2e/employees.spec.js) with data in [`e2e/fixtures/db.json`](e2e/fixtures/db.json) |
-| Setup | [`src/test/setup.js`](src/test/setup.js), [`vitest.config.js`](vitest.config.js), [`playwright.config.js`](playwright.config.js) |
-| CI | [`.github/workflows/tests.yml`](.github/workflows/tests.yml) |
-
 ### Run the tests
 
 ```bash
@@ -108,36 +94,27 @@ npm run test:e2e    # end-to-end tests (Playwright; starts the app and a local A
 
 ## 📁 Project Structure
 
-```text
 src/
 ├── App.jsx
 ├── Layout.jsx
 ├── config.js
 ├── main.jsx
 ├── components/
-│   ├── Header.jsx
-│   ├── Footer.jsx
-│   ├── PersonList.jsx
-│   ├── PersonList.test.jsx
-│   └── PersonCard.jsx
+│ ├── Header.jsx
+│ ├── Footer.jsx
+│ ├── PersonList.jsx
+│ ├── Employee.jsx
+│ ├── PersonCard.jsx
 ├── pages/
-│   ├── AddEmployee.jsx
-│   ├── EmployeeTablePage.jsx
-│   ├── About.jsx
-│   └── ErrorPage.jsx
+│ ├── AddEmployee.jsx
+│ ├── About.jsx
+│ └── ErrorPage.jsx
 ├── hooks/
-│   └── useAxios.js
-├── utils/            # each utility has a .test.js next to it
-│   ├── calculateWorkExperience.js
-│   ├── reminders.js
-│   ├── nextEmployeeId.js
-│   └── animalEmoji.js
-└── test/
-    └── setup.js
-e2e/
-├── employees.spec.js
-└── fixtures/db.json
-```
+│ └── useAxios.js
+├── utils/
+│ ├── calculateWorkExperience.js
+│ └── animalEmoji.js
+└── styles/
 
 ---
 
